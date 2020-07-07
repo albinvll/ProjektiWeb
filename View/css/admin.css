@@ -7,24 +7,95 @@
     flex-direction: row;
 }
 
+.logo{
+    width: auto;
+    height: auto;
+    text-align: center;
+    margin-top: 40px;
+}
+
 .left-side{
     height: 100vh;
-    width: 25%;
-    background-color: blue;
-}
-.right-side{
-    height: 100vh;
-    width: 75%;
-    background-color: red;
+    width: 20%;
+    background-color: white;
 }
 
 .left-side-main{
     width: 60%;
-    margin: 0 auto;
+    margin: 15% auto;
 }
 
 .Titujt{
-    color: white;
+    color: black;
     font-size: 30px;
     margin: 20px;
+    cursor: pointer;
+}
+
+.Titujt a{
+    text-decoration: none;
+    color: black;
+}
+
+.right-side{
+    height: 100vh;
+    width: 80%;
+    background-color: white;
+    display: flex;
+    flex-direction: row;
+}
+.tabela-forma{
+    width: 50%;
+    background-color: black;
+}
+.libri-forma{
+    width: 50%;
+}
+form{
+    margin-top: 20%;
+    margin-left: 15%;
+}
+
+.login-form label {
+    color: gray;
+    font-weight: bold;
+    font-size: 14px;
+    font-family: 'Segoe UI';
+}
+.login-form{
+    width: 100%;
+    margin-top: 30px;
+}
+
+.login-form input {
+    background: none;
+    border: none;
+    outline: none;
+    border-bottom: 1.5px solid lightgray;
+    width: 80%;
+    padding: 5px 0;
+    font-size: 17px;
+}
+
+.login-form input:focus{
+    border-bottom:1.5px solid #e94c37;
+}
+
+.butonat-div{
+    width: 80%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.butonat-div button{
+    margin: 20px;
+    border: none;
+    background-color: #e94c37;
+    outline: none;
+    padding: 10px 0;
+    width: 100px;
+    color: white;
+    cursor: pointer;
+    border-radius: 50px;
 }
