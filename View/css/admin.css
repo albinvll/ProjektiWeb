@@ -1,0 +1,30 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+.main{
+    display: flex;
+    flex-direction: row;
+}
+
+.left-side{
+    height: 100vh;
+    width: 25%;
+    background-color: blue;
+}
+.right-side{
+    height: 100vh;
+    width: 75%;
+    background-color: red;
+}
+
+.left-side-main{
+    width: 60%;
+    margin: 0 auto;
+}
+
+.Titujt{
+    color: white;
+    font-size: 30px;
+    margin: 20px;
+}
