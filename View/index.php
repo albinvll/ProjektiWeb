@@ -57,7 +57,7 @@
                     </div>
                     <div class="login-form">
                         <label for="">Email</label><br>
-                        <input type="email" name="emailRegisterInput" id="emailRegisterInput">
+                        <input type="text" name="emailRegisterInput" id="emailRegisterInput">
                     </div>
                     <div class="login-form">
                         <label for="">Password</label><br>

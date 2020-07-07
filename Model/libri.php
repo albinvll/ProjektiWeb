@@ -18,7 +18,9 @@ class Libri{
 
     public function getId(){
         global $connection;
-        return mysqli_query($connection,"SELECT id FROM libri WHERE title = '$this->title'");
+        $result = mysqli_query($connection,"SELECT id FROM libri WHERE title = '$this->title'");
+        $row = mysqli_fetch_assoc($result);
+        return $row['id'];
     }
 
     public function getTitle(){

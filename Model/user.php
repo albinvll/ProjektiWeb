@@ -19,7 +19,9 @@ class User{
 
     public function getId(){
         global $connection;
-        return mysqli_query($connection,"SELECT id FROM users WHERE email = '$this->email'");
+        $result = mysqli_query($connection,"SELECT id FROM users WHERE email = '$this->email'");
+        $row = mysqli_fetch_assoc($result);
+        return $row['id'];
     }
 
     public function getName(){
