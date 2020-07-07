@@ -20,16 +20,16 @@
                     <a href="user.php">User</a>
                 </div>
                 <div class="Titujt">
-                    Contact
+                    <a href="contact.php">Contact</a>
                 </div>
                 <div class="Titujt">
-                    Example
+                    <a href="example1.php">example1</a>
                 </div>
                 <div class="Titujt">
-                    Example
+                    <a href="example2.php">example2</a>
                 </div>
                 <div class="Titujt">
-                    Example
+                    <a href="example3.php">example3</a>
                 </div>
             </div>
         </div>

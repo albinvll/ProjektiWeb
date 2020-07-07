@@ -14,22 +14,22 @@
             </div>
             <div class="left-side-main">
                 <div class="Titujt">
-                    Libri
+                    <a href="libri.php">Libri</a>
                 </div>
                 <div class="Titujt" style="color: red;">
                     User
                 </div>
                 <div class="Titujt">
-                    Example
+                    <a href="contact.php">Contact</a>
                 </div>
                 <div class="Titujt">
-                    Example
+                    <a href="example1.php">example1</a>
                 </div>
                 <div class="Titujt">
-                    Example
+                    <a href="example2.php">example2</a>
                 </div>
                 <div class="Titujt">
-                    Example
+                    <a href="example3.php">example3</a>
                 </div>
             </div>
         </div>
@@ -40,25 +40,26 @@
             <div class="libri-forma">
                 <form action="" method="POST" onsubmit="">
                         <div class="login-form">
-                            <label for="">Titulli</label><br>
-                            <input type="text" name="titulli" id="titulliInput">
+                            <label for="">Emri</label><br>
+                            <input type="text" name="Emri" id="emriInput">
                         </div>
                         <div class="login-form">
-                            <label for="">Cmimi</label><br>
-                            <input type="text" name="cmimi" id="cmimiInput">
+                            <label for="">Mbiemri</label><br>
+                            <input type="text" name="Mbiemri" id="mbiemriInput">
                         </div>
                         <div class="login-form">
-                            <label for="">Photo</label><br>
-                            <input type="text" name="photo" id="photoInput">
+                            <label for="">Email</label><br>
+                            <input type="text" name="Email" id="emailInput">
                         </div>
                         <div class="login-form">
-                            <label for="">Autori</label><br>
-                            <input type="text" name="autori" id="autoriInput">
+                            <label for="">Password</label><br>
+                            <input type="password" name="password" id="passwordInput">
                         </div>
-                        <div class="login-form">
-                            <label for="">Data</label><br>
-                            <input type="text" name="data" id="dataInput">
-                        </div>
+
+
+                        <!-- drop box -->
+
+                        
                         <div class="butonat-div">
                             <button name="createAcc">
                                 Regjistro
@@ -74,6 +75,6 @@
             </div>
         </div>
     </div>
-    
+    <script src="javascript/admin.js"></script>
 </body>
 </html>
