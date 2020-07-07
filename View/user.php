@@ -59,6 +59,15 @@
 
                         <!-- drop box -->
 
+                        <div class="combobox">
+                            <h4>0-User</h4>
+                            <h4>1-Admin</h4>
+                            <select name="id_login" class="chooseform">
+                                <option value="1">0</option>
+                                <option value="2">1</option>
+                            </select>                        
+                        </div>
+
                         
                         <div class="butonat-div">
                             <button name="createAcc">
