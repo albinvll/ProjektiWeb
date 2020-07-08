@@ -34,9 +34,56 @@
             </div>
         </div>
         <div class="right-side">
+
             <div class="tabela-forma">
-                <!-- Tabelat -->
-            </div>
+            <table id="table" class="tabelaUser">
+                <tr>
+                    <th>Emri</th>
+                    <th>Mbiemri</th>   
+                    <th>Email</th>
+                    <th>Password</th>                 
+                </tr>
+                <?php
+                    $connection = mysqli_connect('localhost', 'root', '','libraria_web');
+                    if($connection->connect_error){
+                        die("Connection failed:". $connection->connect_error);
+                    }
+
+                    $sql = "select name, surname, email, password from users";
+                    $result = $connection-> query($sql);
+
+                    if ($result->num_rows > 0){
+                        while($row = $result-> fetch_assoc()){
+                            echo "<tr><td>". $row["name"] ."</td><td>". $row["surname"] ."</td><td>". $row["email"] ."</td><td>". $row["password"] ."</td></tr>";
+                        }
+                            echo "</table>";
+                        }else{
+                            echo "0 result";
+                    }
+                    $connection-> close();
+
+                ?>
+            
+                <script>
+                    function selectedRowToInput(){
+                        var rIndex,table = document.getElementById("table");
+                        for(var i=1;i<table.rows.length;i++){
+                            table.rows[i].onclick = function(){
+                                rIndex = this.rowIndex;
+                                document.getElementById("name").value = this.cells[0].innerHTML;
+                                document.getElementById("surname").value = this.cells[1].innerHTML;
+                                document.getElementById("email").value = this.cells[2].innerHTML;
+                                document.getElementById("password").value = this.cells[3].innerHTML;
+                            };
+                        }
+                        selectedRowToInput();
+                    } 
+                </script>
+            </table>
+
+
+        </div>
+
             <div class="libri-forma">
                 <form action="" method="POST" onsubmit="">
                         <div class="login-form">
@@ -55,7 +102,6 @@
                             <label for="">Password</label><br>
                             <input type="password" name="password" id="passwordInput">
                         </div>
-
 
                         <!-- drop box -->
 

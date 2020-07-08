@@ -33,6 +33,9 @@
                 </div>
             </div>
         </div>
+
+        <div class="right-side">
+        </div>
     </div>
     <script src="javascript/admin.js"></script>
 </body>

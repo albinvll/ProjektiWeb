@@ -46,7 +46,7 @@
 }
 .tabela-forma{
     width: 50%;
-    background-color: black;
+    background-color: white;
 }
 .libri-forma{
     width: 50%;
@@ -100,3 +100,18 @@ form{
     border-radius: 50px;
 }
 
+.tabelaUser{
+border-collapse: collapse;
+width: 100%;
+font-size: 17px;
+text-align: left;
+margin-top: 130px;
+cursor: pointer;
+}
+
+th{
+    background-color: #e94c37;
+    color: white;
+}
+
+tr:nth-child(even) {background-color: #f2f2f2;}
