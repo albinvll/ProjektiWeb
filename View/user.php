@@ -53,10 +53,8 @@
                     <th colspan="2">Action</th>                 
                 </tr>
                 <?php
-                    $connection = mysqli_connect('localhost', 'root', '','libraria_web');
-                    if($connection->connect_error){
-                        die("Connection failed:". $connection->connect_error);
-                    }
+                    require "../Model/db_connection.php";
+                    global $connection;
 
                     $sql = "select id , name, surname, email, roli from users";
                     $result = $connection->query($sql);
@@ -109,8 +107,6 @@
                                 <?php
                             }
                         ?>
-                        
-
                         <!-- drop box -->
 
                         <div class="combobox">

@@ -36,37 +36,7 @@
         <div class="right-side">
             <div class="tabela-forma">
                 <div class="tabela-div-content">
-                    <?php
-                        require('../Model/db_connection.php');
-                        global $connection;
-
-                        $sql = "SELECT * FROM libri";
-                        $result = mysqli_query($connection,$sql);
-                        // pre_r($result->fetch_assoc());
-                        function pre_r($array){
-                            echo '<pre>';
-                            print_r($array);
-                            echo '</pre>';
-                        }
-
-                        ?>
-                        <div class="tabela-php">
-                            <table class="tabela">
-                                <thead>
-                                    <tr>
-                                        <th>Titulli</th>
-                                        <th>Cmimi</th>
-                                        <th>Photo</th>
-                                        <th>Autori</th>
-                                        <th>Data</th>
-                                    </tr>
-                                </thead>
-                            
-                            </table>
-                        </div>
-                        <?php
-
-                    ?>
+                   
                 </div>
             </div>
             <div class="libri-forma">
