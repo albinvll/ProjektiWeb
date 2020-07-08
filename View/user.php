@@ -20,7 +20,7 @@
                     User
                 </div>
                 <div class="Titujt">
-                    <a href="contact.php">Contact</a>
+                    <a href="contactadmin.php">Contact</a>
                 </div>
                 <div class="Titujt">
                     <a href="example1.php">example1</a>
