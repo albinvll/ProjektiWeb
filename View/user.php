@@ -34,14 +34,23 @@
             </div>
         </div>
         <div class="right-side">
-
+            <?php
+                require_once "../Controller/AdminUser.php";
+                // session_start();
+                // if(isset($_SESSION['message'])){
+                //     echo $_SESSION['message'];
+                //     unset($_SESSION['message']);
+                // }
+            ?>
+            
             <div class="tabela-forma">
             <table id="table" class="tabelaUser">
                 <tr>
                     <th>Emri</th>
                     <th>Mbiemri</th>   
                     <th>Email</th>
-                    <th>Password</th>                 
+                    <th>Roli</th>
+                    <th colspan="2">Action</th>                 
                 </tr>
                 <?php
                     $connection = mysqli_connect('localhost', 'root', '','libraria_web');
@@ -49,59 +58,58 @@
                         die("Connection failed:". $connection->connect_error);
                     }
 
-                    $sql = "select name, surname, email, password from users";
-                    $result = $connection-> query($sql);
+                    $sql = "select id , name, surname, email, roli from users";
+                    $result = $connection->query($sql);
 
                     if ($result->num_rows > 0){
                         while($row = $result-> fetch_assoc()){
-                            echo "<tr><td>". $row["name"] ."</td><td>". $row["surname"] ."</td><td>". $row["email"] ."</td><td>". $row["password"] ."</td></tr>";
+                            echo "<tr><td>". $row["name"] ."</td><td>". $row["surname"] ."</td><td>". $row["email"] ."</td><td>". $row["roli"] ."</td>";
+                            ?>
+                            <td>
+                                <a href="user.php?edit=<?php echo $row['id']; ?>">Edit</a>
+                                <a href="../Controller/AdminUser.php?delete=<?php echo $row['id']; ?>">Delete</a>
+                            </td>
+                            </tr>
+                            <?php
                         }
                             echo "</table>";
-                        }else{
-                            echo "0 result";
+                    }else{
+                        echo "0 result";
                     }
-                    $connection-> close();
+                    $connection->close();
 
                 ?>
-            
-                <script>
-                    function selectedRowToInput(){
-                        var rIndex,table = document.getElementById("table");
-                        for(var i=1;i<table.rows.length;i++){
-                            table.rows[i].onclick = function(){
-                                rIndex = this.rowIndex;
-                                document.getElementById("name").value = this.cells[0].innerHTML;
-                                document.getElementById("surname").value = this.cells[1].innerHTML;
-                                document.getElementById("email").value = this.cells[2].innerHTML;
-                                document.getElementById("password").value = this.cells[3].innerHTML;
-                            };
-                        }
-                        selectedRowToInput();
-                    } 
-                </script>
             </table>
 
 
         </div>
 
             <div class="libri-forma">
-                <form action="" method="POST" onsubmit="">
+                <form action="../Controller/AdminUser.php" method="POST" onsubmit="">
                         <div class="login-form">
                             <label for="">Emri</label><br>
-                            <input type="text" name="Emri" id="emriInput">
+                            <input type="text" name="Emri" id="emriInput" value="<?php echo $name; ?>">
+                            <input type="hidden" name="idHidden" id="id" value="<?php echo $id; ?>">
                         </div>
                         <div class="login-form">
                             <label for="">Mbiemri</label><br>
-                            <input type="text" name="Mbiemri" id="mbiemriInput">
+                            <input type="text" name="Mbiemri" id="mbiemriInput" value="<?php echo $surname; ?>">
                         </div>
                         <div class="login-form">
                             <label for="">Email</label><br>
-                            <input type="text" name="Email" id="emailInput">
+                            <input type="text" name="Email" id="emailInput" value="<?php echo $email; ?>">
                         </div>
-                        <div class="login-form">
-                            <label for="">Password</label><br>
-                            <input type="password" name="password" id="passwordInput">
-                        </div>
+                        <?php
+                            if(!$update){
+                                ?>
+                                    <div class="login-form">
+                                        <label for="">Password</label><br>
+                                        <input type="password" name="Password" id="">
+                                    </div>
+                                <?php
+                            }
+                        ?>
+                        
 
                         <!-- drop box -->
 
@@ -109,20 +117,30 @@
                             <h4>0-User</h4>
                             <h4>1-Admin</h4>
                             <select name="id_login" class="chooseform">
-                                <option value="1">0</option>
-                                <option value="2">1</option>
+                                <option value="0">0</option>
+                                <option value="1">1</option>
                             </select>                        
                         </div>
 
                         
                         <div class="butonat-div">
-                            <button name="createAcc">
-                                Regjistro
-                            </button>
-                            <button name="createAcc">
-                                Fshij
-                            </button>
-                            <button name="createAcc">
+                            <?php
+                                if($update){
+                                    ?>
+                                        <button type="submit" name="ndryshoButton">
+                                            Ndrysho
+                                        </button>
+                                    <?php
+                                } else {
+                                    ?>
+                                        <button name="createAcc">
+                                            Ruaj
+                                        </button>
+                                    <?php
+                                }
+                            ?>
+                            
+                            <button name="anuloButton">
                                 Anulo
                             </button>
                         </div>
