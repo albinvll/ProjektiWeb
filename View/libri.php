@@ -34,10 +34,52 @@
             </div>
         </div>
         <div class="right-side">
-            <div class="tabela-forma">
-                <div class="tabela-div-content">
-                   
-                </div>
+            <?php
+                    require_once "../Controller/AdminUser.php";
+                    // session_start();
+                    // if(isset($_SESSION['message'])){
+                    //     echo $_SESSION['message'];
+                    //     unset($_SESSION['message']);
+                    // }
+                ?>
+                
+                <div class="tabela-forma">
+                <table id="tabelaLibri" class="tabelaUser">
+                    <tr>
+                  
+                        <th>Title</th>
+                        <th>Price</th>
+                        <th>Photo</th>
+                        <th>Author</th>
+                        <th>Date</th>
+                        <th colspan="2">Action</th>
+                    </tr>   
+                    <?php
+                        require "../Model/db_connection.php";
+                        global $connection;
+
+                        $sql = "select id , title, price, photo, author, date from libri";
+                        $result = $connection->query($sql);
+
+                        if ($result->num_rows > 0){
+                            while($row = $result-> fetch_assoc()){
+                                echo "<tr><td>". $row["title"] ."</td><td>". $row["price"]  ."</td><td>". $row["photo"] ."</td><td>". $row["author"] ."</td><td>". $row["date"] ."</td>";
+                                ?>
+                                <td>
+                                    <a href="libri.php?edit=<?php echo $row['id']; ?>">Edit</a>
+                                    <a href="../Controller/AdminUser.php?delete=<?php echo $row['id']; ?>">Delete</a>
+                                </td>
+                                </tr>
+                                <?php
+                            }
+                                echo "</tabelaLibri>";
+                        }else{
+                            echo "0 result";
+                        }
+                        $connection->close();
+
+                    ?>
+                </table>
             </div>
             <div class="libri-forma">
                 <form action="" method="POST" onsubmit="">
