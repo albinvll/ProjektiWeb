@@ -108,6 +108,10 @@ form{
     
 }
 
+#tabelaLibri{
+    font-size: 12px;
+}
+
 th{
     background-color: #e94c37;
     color: white;

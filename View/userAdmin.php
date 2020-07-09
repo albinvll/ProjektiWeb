@@ -14,7 +14,7 @@
             </div>
             <div class="left-side-main">
                 <div class="Titujt">
-                    <a href="libri.php">Libri</a>
+                    <a href="libriAdmin.php">Libri</a>
                 </div>
                 <div class="Titujt" style="color: red;">
                     User
@@ -23,13 +23,13 @@
                     <a href="contactadmin.php">Contact</a>
                 </div>
                 <div class="Titujt">
-                    <a href="example1.php">example1</a>
+                    <a href="#example1.php">example1</a>
                 </div>
                 <div class="Titujt">
-                    <a href="example2.php">example2</a>
+                    <a href="#example2.php">example2</a>
                 </div>
                 <div class="Titujt">
-                    <a href="example3.php">example3</a>
+                    <a href="#example3.php">example3</a>
                 </div>
             </div>
         </div>
@@ -64,7 +64,7 @@
                             echo "<tr><td>". $row["name"] ."</td><td>". $row["surname"] ."</td><td>". $row["email"] ."</td><td>". $row["roli"] ."</td>";
                             ?>
                             <td>
-                                <a href="user.php?edit=<?php echo $row['id']; ?>">Edit</a>
+                                <a href="userAdmin.php?edit=<?php echo $row['id']; ?>">Edit</a>
                                 <a href="../Controller/AdminUser.php?delete=<?php echo $row['id']; ?>">Delete</a>
                             </td>
                             </tr>

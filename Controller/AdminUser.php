@@ -15,7 +15,7 @@
         } else {
             $_SESSION['message'] = "User didn't Deleted Succesfully";
         }
-        header("location: ../View/user.php");
+        header("location: ../View/userAdmin.php");
         exit();
     }
 
@@ -54,10 +54,10 @@
         $result = mysqli_query($connection,$sql) or die(mysqli_error($connection));
         if($result){
             // Mesazhi me Sukses
-            header("location: ../View/user.php");
+            header("location: ../View/userAdmin.php");
         }else {
             // Mesazhi pa sukses
-            header("location: ../View/user.php");
+            header("location: ../View/userAdmin.php");
         }
     }
 
@@ -75,13 +75,13 @@
         if(register($user)){
         ?>
         <script>
-            window.location.href="../View/user.php";
+            window.location.href="../View/userAdmin.php";
         </script>
         <?php
         }else {
             ?>
             <script>
-                window.location.href="../View/user.php";
+                window.location.href="../View/userAdmin.php";
                 alert("This email has already been registered");
             </script>
             <?php

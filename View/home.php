@@ -7,6 +7,10 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
+    <?php 
+        require('../Model/db_connection.php');
+        global $connection;
+    ?>
     <div class="upper" id="upp">
         <div id="up">
             <div class="logo">
@@ -108,20 +112,23 @@
                     HOT DEALS
                 </div>
                 <div class="first-offer">
+                    <?php
+                        $sql = "SELECT * FROM `libri` WHERE price = (SELECT MIN(price) FROM `libri`)";
+                        $result = mysqli_query($connection,$sql) or die(mysqli_error($connection));
+                        $libri = $result->fetch_array();
+
+                    ?>
                     <div class="offer-pic">
-                        <img src="Images/first-offer.png" alt="">
+                        <img src="Images/<?php echo $libri['photo']; ?>" alt="Cannot find photo from Database">
                     </div>
                     <div class="name-price">
                         <div class="name-div">
                             <div class="name">
-                                Etiam Auctor
+                                <?php echo $libri['title']; ?>
                             </div>
                             <div class="rating">
-                                <i class="fa fa-star checked"></i>
-                                    <i class="fa fa-star checked"></i>
-                                    <i class="fa fa-star checked"></i>
-                                    <i class="fa fa-star checked"></i>
-                                    <i class="fa fa-star checked"></i>
+                                <i>Autori:</i>
+                                <?php echo $libri['author']; ?>
                             </div>
                         </div>
                         <div class="name-div">
@@ -129,7 +136,7 @@
                                 <s>$40.48</s>
                             </p>
                             <p class="price">
-                                $36.43
+                                $<?php echo $libri['price']; ?>
                             </p>
                         </div>
                         <div class="name-div">
@@ -143,7 +150,33 @@
                     NEW ARRIVALS
                 </div>
                 <div class="arrival-div">
-                    <div class="arrival-book">
+                    <?php 
+                        $sql = "SELECT * FROM `libri` ORDER BY id DESC LIMIT 4";
+                        $result = mysqli_query($connection,$sql) or die(mysqli_error($connection));
+                        // $libri = $result->fetch_array();
+                        while($librat = $result->fetch_array()){
+                            ?>
+                                <div class="arrival-book">
+                                    <div class="arrival-img">
+                                        <img src="Images/<?php echo $librat['photo']; ?>" alt="Cannot find photo from Database">
+                                    </div>  
+                                    <div class="arrival-book-content">
+                                        <div>
+                                            <?php echo $librat['title']; ?>
+                                        </div>
+                                        <div>
+                                            <i>Autori:</i>
+                                            <?php echo $librat['author']; ?>
+                                        </div>
+                                        <div class="price">
+                                            $<?php echo $librat['price']; ?>
+                                        </div>
+                                    </div>
+                                </div>
+                            <?php
+                        }
+                    ?>
+                    <!-- <div class="arrival-book">
                         <div class="arrival-img">
                             <img src="Images/book6.png" alt="">
                         </div>
@@ -163,7 +196,7 @@
                     </div>
                     <div class="arrival-book">
                         <div class="arrival-img">
-                            <img src="Images/book7.png" alt="">
+                            <img src="Images/book2.png" alt="">
                         </div>
                         <div class="arrival-book-content">
                             <div>History Month</div>
@@ -181,7 +214,7 @@
                     </div>
                     <div class="arrival-book">
                         <div class="arrival-img">
-                            <img src="Images/book8.png" alt="">
+                            <img src="Images/book2.png" alt="">
                         </div>
                         <div class="arrival-book-content">
                             <div>The Book of Love</div>
@@ -199,7 +232,7 @@
                     </div>
                     <div class="arrival-book">
                         <div class="arrival-img">
-                            <img src="Images/book9.png" alt="">
+                            <img src="Images/book2.png" alt="">
                         </div>
                         <div class="arrival-book-content">
                             <div>Suspendisse Vel</div>
@@ -214,7 +247,7 @@
                                 $40.39
                             </div>
                         </div>
-                    </div>
+                    </div> -->
                 </div>
                 <div class="title">
                     TESTIMONIALS
@@ -238,24 +271,30 @@
                     </div>
                 </div>
             </div>
+    <?php
+        $sql = "SELECT * FROM `libri`";
+        $result = mysqli_query($connection,$sql) or die(mysqli_error($connection));
+    ?>
             <div class="right-content">
                 <div class="title">
                     BEST SELLER
                 </div>
                 <div class="three-books">
                     <div class="book">
-                        <img src="Images/book1.png" alt="">
+                        <?php
+                            $row = $result->fetch_array();
+                        ?>
+                        <img src="Images/<?php echo $row['photo']; ?>" alt="Cannot find photo from Database">
                         <div class="name-price">
                             <div class="name-div">
                                 <div class="name">
-                                    Grateful And Give
+                                    <?php
+                                        echo $row['title'];
+                                    ?>  
                                 </div>
                                 <div class="rating">
-                                    <i class="fa fa-star checked"></i>
-                                    <i class="fa fa-star checked"></i>
-                                    <i class="fa fa-star checked"></i>
-                                    <i class="fa fa-star checked"></i>
-                                    <i class="fa fa-star checked"></i>
+                                    <i>Autori:</i>   
+                                    <?php echo $row['author']; ?>
                                 </div>
                             </div>
                             <div class="name-div">
@@ -265,24 +304,26 @@
                                     </button>
                                 </p>
                                 <p class="price">
-                                    $30.39
+                                    $<?php echo $row['price']; ?>
                                 </p>
                             </div>
                         </div>
                     </div>
                     <div class="book">
-                        <img src="Images/book2.png" alt="">
+                        <?php
+                            $row = $result->fetch_array();
+                        ?>
+                        <img src="Images/<?php echo $row['photo']; ?>" alt="Cannot find photo from Database">
                         <div class="name-price">
                             <div class="name-div">
                                 <div class="name">
-                                    Soccer Poster
+                                    <?php
+                                        echo $row['title'];
+                                    ?>  
                                 </div>
                                 <div class="rating">
-                                    <i class="fa fa-star checked"></i>
-                                    <i class="fa fa-star checked"></i>
-                                    <i class="fa fa-star checked"></i>
-                                    <i class="fa fa-star checked"></i>
-                                    <i class="fa fa-star checked"></i>
+                                    <i>Autori:</i>   
+                                    <?php echo $row['author']; ?>
                                 </div>
                             </div>
                             <div class="name-div">
@@ -292,24 +333,26 @@
                                     </button>
                                 </p>
                                 <p class="price">
-                                    $30.39
+                                    $<?php echo $row['price']; ?>
                                 </p>
                             </div>
                         </div>
                     </div>
                     <div class="book">
-                        <img src="Images/book3.png" alt="">
+                        <?php
+                            $row = $result->fetch_array();
+                        ?>
+                        <img src="Images/<?php echo $row['photo']; ?>" alt="Cannot find photo from Database">
                         <div class="name-price">
                             <div class="name-div">
                                 <div class="name">
-                                    Suspendisse Vel
+                                    <?php
+                                        echo $row['title'];
+                                    ?>  
                                 </div>
-                                <div class="rating">
-                                    <i class="fa fa-star checked"></i>
-                                    <i class="fa fa-star checked"></i>
-                                    <i class="fa fa-star checked"></i>
-                                    <i class="fa fa-star checked"></i>
-                                    <i class="fa fa-star checked"></i>
+                                <div class="rating">    
+                                    <i>Autori:</i>   
+                                    <?php echo $row['author']; ?>
                                 </div>
                             </div>
                             <div class="name-div">
@@ -319,7 +362,7 @@
                                     </button>
                                 </p>
                                 <p class="price">
-                                    $40.39
+                                    $<?php echo $row['price']; ?>
                                 </p>
                             </div>
                         </div>
@@ -327,18 +370,20 @@
                 </div>
                 <div class="three-books">
                     <div class="book">
-                        <img src="Images/first-offer.png" alt="">
+                        <?php
+                            $row = $result->fetch_array();
+                        ?>
+                        <img src="Images/<?php echo $row['photo']; ?>" alt="Cannot find photo from Database">
                         <div class="name-price">
                             <div class="name-div">
                                 <div class="name">
-                                    Etiam Auctor
+                                    <?php
+                                        echo $row['title'];
+                                    ?> 
                                 </div>
                                 <div class="rating">
-                                    <i class="fa fa-star checked"></i>
-                                    <i class="fa fa-star checked"></i>
-                                    <i class="fa fa-star checked"></i>
-                                    <i class="fa fa-star checked"></i>
-                                    <i class="fa fa-star checked"></i>
+                                    <i>Autori:</i>   
+                                    <?php echo $row['author']; ?>
                                 </div>
                             </div>
                             <div class="name-div">
@@ -346,27 +391,29 @@
                                     <button onclick="Buy('Etiam Auctor')">
                                         Buy now
                                     </button>
-                                    <s> $40.48</s>
+                                    
                                 </p>
                                 <p class="price">
-                                    $36.43
+                                    $<?php echo $row['price']; ?>
                                 </p>
                             </div>
                         </div>
                     </div>
                     <div class="book">
-                        <img src="Images/book4.png" alt="">
+                        <?php
+                            $row = $result->fetch_array();
+                        ?>
+                        <img src="Images/<?php echo $row['photo']; ?>" alt="Cannot find photo from Database">
                         <div class="name-price">
                             <div class="name-div">
                                 <div class="name">
-                                    The Storyteller
+                                    <?php
+                                        echo $row['title'];
+                                    ?> 
                                 </div>
                                 <div class="rating">
-                                    <i class="fa fa-star checked"></i>
-                                    <i class="fa fa-star checked"></i>
-                                    <i class="fa fa-star checked"></i>
-                                    <i class="fa fa-star checked"></i>
-                                    <i class="fa fa-star checked"></i>
+                                    <i>Autori:</i>   
+                                    <?php echo $row['author']; ?>
                                 </div>
                             </div>
                             <div class="name-div">
@@ -374,27 +421,28 @@
                                     <button onclick="Buy('The Storyteller')">
                                         Buy now
                                     </button>
-                                    <s> $40.00</s>
                                 </p>
                                 <p class="price">
-                                    $25.00
+                                    $<?php echo $row['price']; ?>
                                 </p>
                             </div>
                         </div>
                     </div>
                     <div class="book">
-                        <img src="Images/book5.png" alt="">
+                        <?php
+                            $row = $result->fetch_array();
+                        ?>
+                        <img src="Images/<?php echo $row['photo']; ?>" alt="Cannot find photo from Database">
                         <div class="name-price">
                             <div class="name-div">
                                 <div class="name">
-                                    The Book Of Love
+                                    <?php
+                                        echo $row['title'];
+                                    ?> 
                                 </div>
                                 <div class="rating">
-                                    <i class="fa fa-star checked"></i>
-                                    <i class="fa fa-star checked"></i>
-                                    <i class="fa fa-star checked"></i>
-                                    <i class="fa fa-star checked"></i>
-                                    <i class="fa fa-star checked"></i>
+                                    <i>Autori:</i>   
+                                    <?php echo $row['author']; ?>
                                 </div>
                             </div>
                             <div class="name-div">
@@ -404,7 +452,7 @@
                                     </button>
                                 </p>
                                 <p class="price">
-                                    $42.39
+                                    $<?php echo $row['price']; ?>
                                 </p>
                             </div>
                         </div>
