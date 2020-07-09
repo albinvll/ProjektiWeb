@@ -82,7 +82,7 @@
                 </table>
             </div>
             <div class="libri-forma">
-                <form action="../Controller/AdminLibri.php" method="POST" onsubmit="">
+                <form action="../Controller/AdminLibri.php" method="POST" onsubmit="return libriAdmin()">
                         <div class="login-form">
                             <label for="">Titulli</label><br>
                             <input type="text" name="titulli" id="titulliInput" value = "<?php echo $titulli; ?>">

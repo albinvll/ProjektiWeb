@@ -83,7 +83,7 @@
         </div>
 
             <div class="libri-forma">
-                <form action="../Controller/AdminUser.php" method="POST" onsubmit="">
+                <form action="../Controller/AdminUser.php" method="POST" onsubmit="return userAdmin()">
                         <div class="login-form">
                             <label for="">Emri</label><br>
                             <input type="text" name="Emri" id="emriInput" value="<?php echo $name; ?>">

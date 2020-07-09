@@ -271,7 +271,7 @@
                 </div>
             </div>
     <?php
-        $sql = "SELECT * FROM `libri` LIMIT 6";
+        $sql = "SELECT * FROM `libri`";
         $result = mysqli_query($connection,$sql) or die(mysqli_error($connection));
     ?>
             <div class="right-content">

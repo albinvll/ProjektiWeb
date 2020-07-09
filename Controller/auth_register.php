@@ -10,11 +10,7 @@
 
         $user = new User($name,$surname,$email,$password,$roli);
         if(register($user)){
-        ?>
-        <script>
-            window.location.href="../View/index.php";
-        </script>
-        <?php
+            header("location: ../View/index.php");
         }else {
             ?>
             <script>
