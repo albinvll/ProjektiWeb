@@ -102,7 +102,7 @@
                                 ?>
                                     <div class="login-form">
                                         <label for="">Password</label><br>
-                                        <input type="password" name="Password" id="">
+                                        <input type="password" name="Password" id="passwordInput">
                                     </div>
                                 <?php
                             }

@@ -33,6 +33,60 @@
                 </div>
             </div>
         </div>
+        <div class="right-side">
+            <div class="tabela-forma">
+                <table id="tableContact" class="tabelaUser">
+                    <tr>
+                        <th>Email</th>
+                        <th>Subject</th>   
+                        <th>Sent Date</th>
+                        <th colspan="2">Action</th>                 
+                    </tr>
+                    <?php
+                        require "../Model/db_connection.php";
+                        global $connection;
+
+                        $sql = "select id, email, subject, sentdate from reports";
+                        $result = $connection->query($sql);
+
+                        if ($result->num_rows > 0){
+                            while($row = $result-> fetch_assoc()){
+                                echo "<tr><td>".  $row["email"] ."</td><td>". $row["subject"] ."</td><td>". $row["sentdate"] ."</td>";
+                                ?>
+                                <td>
+                                    <a href="userAdmin.php?edit=<?php echo $row['id']; ?>">Edit</a>
+                                    <a href="../Controller/AdminUser.php?delete=<?php echo $row['id']; ?>">Delete</a>
+                                </td>
+                                </tr>
+                                <?php
+                            }
+                                echo "</tableContact>";
+                        }else{
+                            echo "0 result";
+                        }
+                        $connection->close();
+
+                    ?>
+                </table>
+            </div>
+            <div class="libri-forma">
+                <form action="../Controller/AdminUser.php" method="POST" onsubmit="return contactAdmin()">
+                        <div class="login-form">
+                            <label for="">Email</label><br>
+                            <input type="text" name="email" id="econtactInput">
+                            
+                        </div>
+                        <div class="login-form">
+                            <label for="">Subject</label><br>
+                            <input type="text" name="subject" id="subjectInput">
+                        </div>
+                        <div class="login-form">
+                            <label for="">Sent Date</label><br>
+                            <input type="date" name="sentdate" id="sentdateInput">
+                        </div>
+                </form>
+            </div>            
+        </div>
     </div>
     <script src="javascript/admin.js"></script>
 </body>
