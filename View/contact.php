@@ -42,9 +42,9 @@
             <div class="header">
                 <div class="header-list">
                     <ul>
-                        <a href="home.html"><li>HOME</li></a>
-                        <a href="about.html"><li>ABOUT US</li></a>
-                        <a href="contact.html"><li>CONTACT US</li></a>
+                        <a href="home.php"><li>HOME</li></a>
+                        <a href="about.php"><li>ABOUT US</li></a>
+                        <a href="contact.php"><li>CONTACT US</li></a>
                     </ul>
                 </div>
                 <div class="header-phone-div">

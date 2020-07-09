@@ -46,9 +46,9 @@
             <div class="header">
                 <div class="header-list">
                     <ul>
-                        <a href="home.html"><li>HOME</li></a>
-                        <a href="about.html"><li>ABOUT US</li></a>
-                        <a href="contact.html"><li>CONTACT US</li></a>
+                        <a href="home.php"><li>HOME</li></a>
+                        <a href="about.php"><li>ABOUT US</li></a>
+                        <a href="contact.php"><li>CONTACT US</li></a>
                     </ul>
                 </div>
                 <div class="header-phone-div">
@@ -153,7 +153,6 @@
                     <?php 
                         $sql = "SELECT * FROM `libri` ORDER BY id DESC LIMIT 4";
                         $result = mysqli_query($connection,$sql) or die(mysqli_error($connection));
-                        // $libri = $result->fetch_array();
                         while($librat = $result->fetch_array()){
                             ?>
                                 <div class="arrival-book">
@@ -272,7 +271,7 @@
                 </div>
             </div>
     <?php
-        $sql = "SELECT * FROM `libri`";
+        $sql = "SELECT * FROM `libri` LIMIT 6";
         $result = mysqli_query($connection,$sql) or die(mysqli_error($connection));
     ?>
             <div class="right-content">
