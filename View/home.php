@@ -499,6 +499,7 @@
                             </div>
                         </div>
                     </div>
+                    
                     <div class="book">
                         <img src="Images/book11.png" alt="">
                         <div class="name-price">
