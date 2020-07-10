@@ -46,26 +46,25 @@
                         require "../Model/db_connection.php";
                         global $connection;
 
-                        $sql = "select id, email, subject, sentdate from reports";
+                        $sql = "select id, email, subject, content ,sentdate from reports";
                         $result = $connection->query($sql);
 
                         if ($result->num_rows > 0){
-                            while($row = $result-> fetch_assoc()){
+                            while($row = $result->fetch_assoc()){
                                 echo "<tr><td>".  $row["email"] ."</td><td>". $row["subject"] ."</td><td>". $row["sentdate"] ."</td>";
                                 ?>
                                 <td>
-                                    <a href="userAdmin.php?edit=<?php echo $row['id']; ?>">Edit</a>
+                                    <a href="userAdmin.php?edit=<?php echo $row['id']; ?>">Msg</a>
                                     <a href="../Controller/AdminUser.php?delete=<?php echo $row['id']; ?>">Delete</a>
                                 </td>
                                 </tr>
                                 <?php
                             }
-                                echo "</tableContact>";
+                                echo "</table>";
                         }else{
                             echo "0 result";
                         }
                         $connection->close();
-
                     ?>
                 </table>
             </div>

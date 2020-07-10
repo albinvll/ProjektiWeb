@@ -137,81 +137,13 @@
                 <p>Sitemap</p>
             </div>
         </div>
-        <div class="footer-content">
-            <h3>FOLLOW INSTAGRAM</h3>
-            <div class="insta-pic">
-                <div class="row">
-                    <img src="Images/guy1.jpg" alt="">
-                    <img src="Images/girl1.jpg" alt="">
-                </div>
-                <div class="row">
-                    <img src="Images/girl2.jpg" alt="">
-                    <img src="Images/guy2.jpg" alt="">
-                </div>
-            </div>
-        </div>
+        
     </footer>
     <div class="copyright">
         &copy; 2020 All Rights Reserved <br>
         <a href="https://github.com/dionk6/Projekti.git" target="_blank">REPOSITORY: Dion Kuka , Albin Vllahiu , Alban Salihu</a>
     </div>
     <script src="javascript/home.js"></script>
-    <script>
-        var queryString = decodeURIComponent(window.location.search);
-        queryString = queryString.substring(1);
-        var queries = queryString.split("&");
-        var titulli =queries;
-        if(titulli=='Soccer Poster'){
-            document.getElementById('titulli-name').innerHTML='Soccer Poster';
-            document.getElementsByTagName('img')[2].src="Images/book2.png";
-            document.getElementById('titulli-pershkrimi').innerHTML='Soccer Poster : Maecenas mauris urna, semper nec dignissim vitae, molestie et magna!Duis pulvinar volutpat euismod.'
-            document.getElementById('price').innerHTML='$30.39';
-        } else if(titulli=='Grateful And Give') {
-            document.getElementById('titulli-name').innerHTML='Grateful And Give';
-            document.getElementsByTagName('img')[2].src="Images/book1.png";
-            document.getElementById('titulli-pershkrimi').innerHTML='Grateful And Give : Maecenas mauris urna, semper nec dignissim vitae, molestie et magna!Duis pulvinar volutpat euismod.'
-            document.getElementById('price').innerHTML='$30.39';
-        } else if(titulli=='Suspendisse Vel'){
-            document.getElementById('titulli-name').innerHTML='Suspendisse Vel';
-            document.getElementsByTagName('img')[2].src="Images/book3.png";
-            document.getElementById('titulli-pershkrimi').innerHTML='Suspendisse Vel : Maecenas mauris urna, semper nec dignissim vitae, molestie et magna!Duis pulvinar volutpat euismod.'
-            document.getElementById('price').innerHTML='$40.39';
-        } else if(titulli=='Etiam Auctor'){
-            document.getElementById('titulli-name').innerHTML='Etiam Auctor';
-            document.getElementsByTagName('img')[2].src="Images/first-offer.png";
-            document.getElementById('titulli-pershkrimi').innerHTML='Etiam Auctor : Maecenas mauris urna, semper nec dignissim vitae, molestie et magna!Duis pulvinar volutpat euismod.'
-            document.getElementById('price').innerHTML='$36.43';
-        } else if(titulli=='The Storyteller'){
-            document.getElementById('titulli-name').innerHTML='The Storyteller';
-            document.getElementsByTagName('img')[2].src="Images/book4.png";
-            document.getElementById('titulli-pershkrimi').innerHTML='The Storyteller : Maecenas mauris urna, semper nec dignissim vitae, molestie et magna!Duis pulvinar volutpat euismod.'
-            document.getElementById('price').innerHTML='$25.00';
-        }else if(titulli=='The Book Of Love'){
-            document.getElementById('titulli-name').innerHTML='The Book Of Love';
-            document.getElementsByTagName('img')[2].src="Images/book5.png";
-            document.getElementById('titulli-pershkrimi').innerHTML='The Book Of Love : Maecenas mauris urna, semper nec dignissim vitae, molestie et magna!Duis pulvinar volutpat euismod.'
-            document.getElementById('price').innerHTML='$42.39';
-        } else if(titulli=='Convallis Pharetra'){
-            document.getElementById('titulli-name').innerHTML=titulli;
-            document.getElementsByTagName('img')[2].src="Images/book10.png";
-            document.getElementById('titulli-pershkrimi').innerHTML=titulli+' : Maecenas mauris urna, semper nec dignissim vitae, molestie et magna!Duis pulvinar volutpat euismod.'
-            document.getElementById('price').innerHTML='$30.39';
-        }else if(titulli=='Eos Lobortis'){
-            document.getElementById('titulli-name').innerHTML=titulli;
-            document.getElementsByTagName('img')[2].src="Images/book12.png";
-            document.getElementById('titulli-pershkrimi').innerHTML=titulli+' : Maecenas mauris urna, semper nec dignissim vitae, molestie et magna!Duis pulvinar volutpat euismod.'
-            document.getElementById('price').innerHTML='$30.39';
-        }else if(titulli=='The Art City'){
-            document.getElementById('titulli-name').innerHTML=titulli;
-            document.getElementsByTagName('img')[2].src="Images/book13.png";
-            document.getElementById('titulli-pershkrimi').innerHTML=titulli+' : Maecenas mauris urna, semper nec dignissim vitae, molestie et magna!Duis pulvinar volutpat euismod.'
-            document.getElementById('price').innerHTML='$30.39';
-        }else if(titulli=='History Month'){
-            document.getElementById('titulli-name').innerHTML=titulli;
-            document.getElementsByTagName('img')[2].src="Images/book13.png";
-            document.getElementById('titulli-pershkrimi').innerHTML=titulli+' : Maecenas mauris urna, semper nec dignissim vitae, molestie et magna!Duis pulvinar volutpat euismod.'
-            document.getElementById('price').innerHTML='$30.39';
-        }
-        </script>
+    
 </body>
 </html>
