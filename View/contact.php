@@ -45,6 +45,7 @@
                         <a href="home.php"><li>HOME</li></a>
                         <a href="about.php"><li>ABOUT US</li></a>
                         <a href="contact.php"><li>CONTACT US</li></a>
+                        <a href="AllBooks.php"><li>BOOKS</li></a>
                     </ul>
                 </div>
                 <div class="header-phone-div">

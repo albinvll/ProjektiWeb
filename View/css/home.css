@@ -181,13 +181,13 @@ a {
     width: 80%;
     margin: 0 auto;
     height: auto;
-    margin-bottom: 50px;
 }
 
 .sliderFull{
     width: 100%;
     height: auto;
     position: relative;
+    margin-bottom: 30px;
 }
 
 .sliderFull img{
@@ -288,11 +288,22 @@ a {
 }
 
 .title {
-    margin-top: 30px;
+    /* margin-top: 15px; */
     background-color: #f2f2f2;
     font-weight: bold;
     padding: 14px 40px 16px 20px;
     font-family: 'Segoe UI';
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.title a{
+    text-decoration: none;
+    color: black;
+}
+
+.title a:hover{
+    color: red;
 }
 
 .first-offer {
@@ -339,16 +350,19 @@ a {
     margin-top: 20px;
     display: flex;
     flex-direction: row;
+    flex-wrap: wrap;
     justify-content: space-between;
 }
 .four-books{
     margin-top: 40px;
     display: flex;
     flex-direction: row;
+    flex-wrap: wrap;
     justify-content: space-between;
 }
 .four-books .book{
     width: 22%;
+    margin-bottom: 30px;
 }
 .right-content img {
     width: 100%;
@@ -358,6 +372,7 @@ a {
 
 .book {
     border: 1px solid #f2f2f2;
+    margin-bottom: 15px;
 }
 .right-content .name-div {
     border: none;
@@ -478,6 +493,16 @@ a {
 }
 
 .name-div button{
+    border: none;
+    background-color: #e94c37;
+    color: white;
+    padding: 5px;
+    outline: none;
+    cursor: pointer;
+    font-size: 12px;
+}
+
+.name-div a{
     border: none;
     background-color: #e94c37;
     color: white;

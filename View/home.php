@@ -49,6 +49,7 @@
                         <a href="home.php"><li>HOME</li></a>
                         <a href="about.php"><li>ABOUT US</li></a>
                         <a href="contact.php"><li>CONTACT US</li></a>
+                        <a href="AllBooks.php"><li>BOOKS</li></a>
                     </ul>
                 </div>
                 <div class="header-phone-div">
@@ -78,7 +79,6 @@
                     <img src="Images/photo3-home.jpg" alt="">
                 </div>
             </div>
-            
             <div class="slidershow-text">
                 <h1>EACH DAY A BOOK</h1>
                 <p>
@@ -99,13 +99,9 @@
                     <div class="button-slideshow right" onclick="right()">
                         <img src="Images/right.png" alt="">
                     </div>
-
                 </div>
             </div>
-
-
         </div>
-
         <div class="main-content">
             <div class="left-content">
                 <div class="title">
@@ -175,78 +171,6 @@
                             <?php
                         }
                     ?>
-                    <!-- <div class="arrival-book">
-                        <div class="arrival-img">
-                            <img src="Images/book6.png" alt="">
-                        </div>
-                        <div class="arrival-book-content">
-                            <div>Convallis Pharetra</div>
-                            <div>
-                                <i class="fa fa-star checked"></i>
-                                <i class="fa fa-star checked"></i>
-                                <i class="fa fa-star checked"></i>
-                                <i class="fa fa-star checked"></i>
-                                <i class="fa fa-star checked"></i>
-                            </div>
-                            <div class="price">
-                                $25.39
-                            </div>
-                        </div>
-                    </div>
-                    <div class="arrival-book">
-                        <div class="arrival-img">
-                            <img src="Images/book2.png" alt="">
-                        </div>
-                        <div class="arrival-book-content">
-                            <div>History Month</div>
-                            <div>
-                                <i class="fa fa-star checked"></i>
-                                <i class="fa fa-star checked"></i>
-                                <i class="fa fa-star checked"></i>
-                                <i class="fa fa-star checked"></i>
-                                <i class="fa fa-star checked"></i>
-                            </div>
-                            <div class="price">
-                                $30.39
-                            </div>
-                        </div>
-                    </div>
-                    <div class="arrival-book">
-                        <div class="arrival-img">
-                            <img src="Images/book2.png" alt="">
-                        </div>
-                        <div class="arrival-book-content">
-                            <div>The Book of Love</div>
-                            <div>
-                                <i class="fa fa-star checked"></i>
-                                <i class="fa fa-star checked"></i>
-                                <i class="fa fa-star checked"></i>
-                                <i class="fa fa-star checked"></i>
-                                <i class="fa fa-star checked"></i>
-                            </div>
-                            <div class="price">
-                                $42.39
-                            </div>
-                        </div>
-                    </div>
-                    <div class="arrival-book">
-                        <div class="arrival-img">
-                            <img src="Images/book2.png" alt="">
-                        </div>
-                        <div class="arrival-book-content">
-                            <div>Suspendisse Vel</div>
-                            <div>
-                                <i class="fa fa-star checked"></i>
-                                <i class="fa fa-star checked"></i>
-                                <i class="fa fa-star checked"></i>
-                                <i class="fa fa-star checked"></i>
-                                <i class="fa fa-star checked"></i>
-                            </div>
-                            <div class="price">
-                                $40.39
-                            </div>
-                        </div>
-                    </div> -->
                 </div>
                 <div class="title">
                     TESTIMONIALS
@@ -271,192 +195,51 @@
                 </div>
             </div>
     <?php
-        $sql = "SELECT * FROM `libri`";
+        $sql = "SELECT * FROM `libri` LIMIT 6";
         $result = mysqli_query($connection,$sql) or die(mysqli_error($connection));
     ?>
             <div class="right-content">
                 <div class="title">
-                    BEST SELLER
+                    <div>
+                        BEST SELLER
+                    </div>
+                    <div>
+                        <a href="AllBooks.php">SEE MORE</a>
+                    </div>
                 </div>
+                
                 <div class="three-books">
-                    <div class="book">
-                        <?php
-                            $row = $result->fetch_array();
-                        ?>
-                        <img src="Images/<?php echo $row['photo']; ?>" alt="Cannot find photo from Database">
-                        <div class="name-price">
-                            <div class="name-div">
-                                <div class="name">
-                                    <?php
-                                        echo $row['title'];
-                                    ?>  
+                    <?php
+                        $numri = 0;
+                        while($row = $result->fetch_array()){
+                            ?>
+                                <div class="book">
+                                    <img src="Images/<?php echo $row['photo']; ?>" alt="Cannot find photo from Database">
+                                    <div class="name-price">
+                                        <div class="name-div">
+                                            <div class="name">
+                                                <?php echo $row['title']; ?>  
+                                            </div>
+                                            <div class="rating">
+                                                <i>Autori:</i>   
+                                                <?php echo $row['author']; ?>
+                                            </div>
+                                        </div>
+                                        <div class="name-div">
+                                            <p>
+                                                <a href="product.php?product=<?php echo $row['id']; ?>">Buy now</a>
+                                            </p>
+                                            <p class="price">
+                                                $<?php echo $row['price']; ?>
+                                            </p>
+                                        </div>
+                                    </div>
                                 </div>
-                                <div class="rating">
-                                    <i>Autori:</i>   
-                                    <?php echo $row['author']; ?>
-                                </div>
-                            </div>
-                            <div class="name-div">
-                                <p>
-                                    <button onclick="Buy('Grateful And Give')">
-                                        Buy now
-                                    </button>
-                                </p>
-                                <p class="price">
-                                    $<?php echo $row['price']; ?>
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="book">
-                        <?php
-                            $row = $result->fetch_array();
-                        ?>
-                        <img src="Images/<?php echo $row['photo']; ?>" alt="Cannot find photo from Database">
-                        <div class="name-price">
-                            <div class="name-div">
-                                <div class="name">
-                                    <?php
-                                        echo $row['title'];
-                                    ?>  
-                                </div>
-                                <div class="rating">
-                                    <i>Autori:</i>   
-                                    <?php echo $row['author']; ?>
-                                </div>
-                            </div>
-                            <div class="name-div">
-                                <p>
-                                    <button onclick="Buy('Soccer Poster')">
-                                        Buy now
-                                    </button>
-                                </p>
-                                <p class="price">
-                                    $<?php echo $row['price']; ?>
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="book">
-                        <?php
-                            $row = $result->fetch_array();
-                        ?>
-                        <img src="Images/<?php echo $row['photo']; ?>" alt="Cannot find photo from Database">
-                        <div class="name-price">
-                            <div class="name-div">
-                                <div class="name">
-                                    <?php
-                                        echo $row['title'];
-                                    ?>  
-                                </div>
-                                <div class="rating">    
-                                    <i>Autori:</i>   
-                                    <?php echo $row['author']; ?>
-                                </div>
-                            </div>
-                            <div class="name-div">
-                                <p>
-                                    <button onclick="Buy('Suspendisse Vel')">
-                                        Buy now
-                                    </button>
-                                </p>
-                                <p class="price">
-                                    $<?php echo $row['price']; ?>
-                                </p>
-                            </div>
-                        </div>
-                    </div>
+                            <?php
+                        }
+                    ?>
                 </div>
-                <div class="three-books">
-                    <div class="book">
-                        <?php
-                            $row = $result->fetch_array();
-                        ?>
-                        <img src="Images/<?php echo $row['photo']; ?>" alt="Cannot find photo from Database">
-                        <div class="name-price">
-                            <div class="name-div">
-                                <div class="name">
-                                    <?php
-                                        echo $row['title'];
-                                    ?> 
-                                </div>
-                                <div class="rating">
-                                    <i>Autori:</i>   
-                                    <?php echo $row['author']; ?>
-                                </div>
-                            </div>
-                            <div class="name-div">
-                                <p>
-                                    <button onclick="Buy('Etiam Auctor')">
-                                        Buy now
-                                    </button>
-                                    
-                                </p>
-                                <p class="price">
-                                    $<?php echo $row['price']; ?>
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="book">
-                        <?php
-                            $row = $result->fetch_array();
-                        ?>
-                        <img src="Images/<?php echo $row['photo']; ?>" alt="Cannot find photo from Database">
-                        <div class="name-price">
-                            <div class="name-div">
-                                <div class="name">
-                                    <?php
-                                        echo $row['title'];
-                                    ?> 
-                                </div>
-                                <div class="rating">
-                                    <i>Autori:</i>   
-                                    <?php echo $row['author']; ?>
-                                </div>
-                            </div>
-                            <div class="name-div">
-                                <p>
-                                    <button onclick="Buy('The Storyteller')">
-                                        Buy now
-                                    </button>
-                                </p>
-                                <p class="price">
-                                    $<?php echo $row['price']; ?>
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="book">
-                        <?php
-                            $row = $result->fetch_array();
-                        ?>
-                        <img src="Images/<?php echo $row['photo']; ?>" alt="Cannot find photo from Database">
-                        <div class="name-price">
-                            <div class="name-div">
-                                <div class="name">
-                                    <?php
-                                        echo $row['title'];
-                                    ?> 
-                                </div>
-                                <div class="rating">
-                                    <i>Autori:</i>   
-                                    <?php echo $row['author']; ?>
-                                </div>
-                            </div>
-                            <div class="name-div">
-                                <p>
-                                    <button onclick="Buy('The Book Of Love')">
-                                        Buy now
-                                    </button>
-                                </p>
-                                <p class="price">
-                                    $<?php echo $row['price']; ?>
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                
                 <div class="new-arrival">
                     <img src="Images/arrival.png" alt="">
                     <div>
@@ -472,225 +255,39 @@
                     FEATURED PRODUCTS
                 </div>
                 <div class="four-books">
-                    <div class="book">
-                        <img src="Images/book10.png" alt="">
-                        <div class="name-price">
-                            <div class="name-div">
-                                <div class="name">
-                                    Convallis Pharetra
+                    <?php
+                        $sql = "SELECT * FROM `libri` ORDER BY `date` DESC";
+                        $res = mysqli_query($connection,$sql) or die(mysqli_error($connection));
+                        $count = 0;
+                        while(($books = $res->fetch_array()) && ($count < 8)){
+                            ?>
+                                <div class="book">
+                                    <img src="Images/<?php echo $books['photo']; ?>" alt="Cannot find photo from Database">
+                                    <div class="name-price">
+                                        <div class="name-div">
+                                            <div class="name">
+                                                <?php echo $books['title']; ?> 
+                                            </div>
+                                            <div class="rating">
+                                                <!-- <i>Autori:</i>    -->
+                                                <?php echo $books['author']; ?>
+                                            </div>
+                                        </div>
+                                        <div class="name-div">
+                                            <p>
+                                                <a href="product.php?product=<?php echo $books['id']; ?>">Buy now</a>
+                                            </p>
+                                            <p class="price">
+                                                $<?php echo $books['price']; ?>
+                                            </p>
+                                        </div>
+                                    </div>
                                 </div>
-                                <div class="rating">
-                                    <i class="fa fa-star checked"></i>
-                                    <i class="fa fa-star checked"></i>
-                                    <i class="fa fa-star checked"></i>
-                                    <i class="fa fa-star checked"></i>
-                                    <i class="fa fa-star checked"></i>
-                                </div>
-                            </div>
-                            <div class="name-div">
-                                <p>
-                                    <button onclick="Buy('Convallis Pharetra')">
-                                        Buy now
-                                    </button> <s> $30.39</s>
-                                </p>
-                                <p class="price">
-                                    $25.39
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="book">
-                        <img src="Images/book11.png" alt="">
-                        <div class="name-price">
-                            <div class="name-div">
-                                <div class="name">
-                                    The Book Of Love
-                                </div>
-                                <div class="rating">
-                                    <i class="fa fa-star checked"></i>
-                                    <i class="fa fa-star checked"></i>
-                                    <i class="fa fa-star checked"></i>
-                                    <i class="fa fa-star checked"></i>
-                                    <i class="fa fa-star checked"></i>
-                                </div>
-                            </div>
-                            <div class="name-div">
-                                <p>
-                                    <button onclick="Buy('The Book Of Love')">
-                                        Buy now
-                                    </button><s></s>
-                                </p>
-                                <p class="price">
-                                    $42.39
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="book">
-                        <img src="Images/book12.png" alt="">
-                        <div class="name-price">
-                            <div class="name-div">
-                                <div class="name">
-                                    Eos Lobortis
-                                </div>
-                                <div class="rating">
-                                    <i class="fa fa-star checked"></i>
-                                    <i class="fa fa-star checked"></i>
-                                    <i class="fa fa-star checked"></i>
-                                    <i class="fa fa-star checked"></i>
-                                    <i class="fa fa-star checked"></i>
-                                </div>
-                            </div>
-                            <div class="name-div">
-                                <p>
-                                    <button onclick="Buy('Eos Lobortis')">
-                                        Buy now
-                                    </button> <s> 30.39</s>
-                                </p>
-                                <p class="price">
-                                    $27.35
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="book">
-                        <img src="Images/book13.png" alt="">
-                        <div class="name-price">
-                            <div class="name-div">
-                                <div class="name">
-                                    The Art City
-                                </div>
-                                <div class="rating">
-                                    <i class="fa fa-star checked"></i>
-                                    <i class="fa fa-star checked"></i>
-                                    <i class="fa fa-star checked"></i>
-                                    <i class="fa fa-star checked"></i>
-                                    <i class="fa fa-star checked"></i>
-                                </div>
-                            </div>
-                            <div class="name-div">
-                                <p>
-                                    <button onclick="Buy('The Art City')">
-                                        Buy now
-                                    </button> <s></s>
-                                </p>
-                                <p class="price">
-                                    $30.39
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="four-books">
-                    <div class="book">
-                        <img src="Images/book14.png" alt="">
-                        <div class="name-price">
-                            <div class="name-div">
-                                <div class="name">
-                                    History Month
-                                </div>
-                                <div class="rating">
-                                    <i class="fa fa-star checked"></i>
-                                    <i class="fa fa-star checked"></i>
-                                    <i class="fa fa-star checked"></i>
-                                    <i class="fa fa-star checked"></i>
-                                    <i class="fa fa-star checked"></i>
-                                </div>
-                            </div>
-                            <div class="name-div">
-                                <p>
-                                    <button onclick="Buy('History Month')">
-                                        Buy now
-                                    </button> <s></s>
-                                </p>
-                                <p class="price">
-                                    $30.39
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="book">
-                        <img src="Images/book3.png" alt="">
-                        <div class="name-price">
-                            <div class="name-div">
-                                <div class="name">
-                                    Suspendisse Vel
-                                </div>
-                                <div class="rating">
-                                    <i class="fa fa-star checked"></i>
-                                    <i class="fa fa-star checked"></i>
-                                    <i class="fa fa-star checked"></i>
-                                    <i class="fa fa-star checked"></i>
-                                    <i class="fa fa-star checked"></i>
-                                </div>
-                            </div>
-                            <div class="name-div">
-                                <p>
-                                    <button onclick="Buy('Suspendisse Vel')">
-                                        Buy now
-                                    </button> <s></s>
-                                </p>
-                                <p class="price">
-                                    $40.39
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="book">
-                        <img src="Images/book4.png" alt="">
-                        <div class="name-price">
-                            <div class="name-div">
-                                <div class="name">
-                                    The Storyteller
-                                </div>
-                                <div class="rating">
-                                    <i class="fa fa-star checked"></i>
-                                    <i class="fa fa-star checked"></i>
-                                    <i class="fa fa-star checked"></i>
-                                    <i class="fa fa-star checked"></i>
-                                    <i class="fa fa-star checked"></i>
-                                </div>
-                            </div>
-                            <div class="name-div">
-                                <p>
-                                    <button onclick="Buy('The Storyteller')">
-                                        Buy now
-                                    </button> <s>40.00</s>
-                                </p>
-                                <p class="price">
-                                    $25.00
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="book">
-                        <img src="Images/book10.png" alt="">
-                        <div class="name-price">
-                            <div class="name-div">
-                                <div class="name">
-                                    Convallis Pharetra
-                                </div>
-                                <div class="rating">
-                                    <i class="fa fa-star checked"></i>
-                                    <i class="fa fa-star checked"></i>
-                                    <i class="fa fa-star checked"></i>
-                                    <i class="fa fa-star checked"></i>
-                                    <i class="fa fa-star checked"></i>
-                                </div>
-                            </div>
-                            <div class="name-div">
-                                <p>
-                                    <button onclick="Buy('Convallis Pharetra')">
-                                        Buy now
-                                    </button> <s>$41.25</s>
-                                </p>
-                                <p class="price">
-                                    $33.00
-                                </p>
-                            </div>
-                        </div>
-                    </div>
+                            <?php
+                            $count++;
+                        }
+                    ?>
+                   
                 </div>
             </div>
         </div>

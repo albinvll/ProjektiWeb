@@ -40,4 +40,5 @@ function edit(Libri $libri){
     $sql = "UPDATE libri SET price='$price' , photo='$photo' , author='$author' , date='$date' WHERE id=$id";
     $toEdit = mysqli_query($connection,$sql);
 }
+
 ?>
