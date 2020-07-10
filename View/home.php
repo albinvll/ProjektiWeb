@@ -252,7 +252,12 @@
                     </div>
                 </div>
                 <div class="title">
+                    <div>
                     FEATURED PRODUCTS
+                    </div>
+                    <div>
+                        <a href="AllBooks.php">SEE MORE</a>
+                    </div>
                 </div>
                 <div class="four-books">
                     <?php

@@ -72,7 +72,7 @@
                 $result = mysqli_query($connection,$sql) or die(mysqli_error($connection));
             ?>
             <div class="right-content" style="width: 100%;">
-                <div class="title">
+                <div class="title" style="margin-top: 0px;">
                     <div>
                         ALL BOOKS
                     </div>
