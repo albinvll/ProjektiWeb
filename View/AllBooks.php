@@ -97,7 +97,7 @@
                                         </div>
                                         <div class="name-div">
                                             <p>
-                                                <a href="product.php?product=<?php echo $row['id']; ?>">Buy now</a>
+                                                <a href="book.php?book=<?php echo $row['id']; ?>">Buy now</a>
                                             </p>
                                             <p class="price">
                                                 $<?php echo $row['price']; ?>
