@@ -7,13 +7,15 @@ class Libri{
     private $photo;
     private $author;
     private $date;
+    private $userID;
 
-    public function __construct($title,$price,$photo,$author,$date){
+    public function __construct($title,$price,$photo,$author,$date,$userID){
         $this->title=$title;
         $this->price=$price;
         $this->photo=$photo;
         $this->author=$author;
         $this->date=$date;
+        $this->userID=$userID;
     }
 
     public function getId(){
@@ -43,6 +45,10 @@ class Libri{
         return $this->date;
     }
 
+    public function getUserID(){
+        return $this->userID;
+    }
+
     public function setTitle($n){
         $this->title=$n;
     }
@@ -62,6 +68,11 @@ class Libri{
     public function setDate($n){
         $this->date=$n;
     }
+
+    public function setUserID($n){
+        $this->userID = $n;
+    }
+    
 
     public function __toString(){
         return (string)($this->title.' , '.$this->price.' , '.$this->author.' , '.$this->date);

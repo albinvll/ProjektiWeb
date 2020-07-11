@@ -7,7 +7,7 @@ function createLibri(Libri $libri){
     $checklibri = mysqli_query($connection, "Select id from libri where title='".$libri->getTitle()."'");  
     $result = mysqli_num_rows($checklibri);  
     if ($result == 0) {
-        $query = "INSERT INTO `libri` (`title`, `price`, `photo`, `author`, `date`) VALUES ('".$libri->getTitle()."', '".$libri->getPrice()."', '".$libri->getPhoto()."', '".$libri->getAuthor()."', '".$libri->getDate()."')";
+        $query = "INSERT INTO `libri` (`title`, `price`, `photo`, `author`, `date` , `User_ID`) VALUES ('".$libri->getTitle()."', '".$libri->getPrice()."', '".$libri->getPhoto()."', '".$libri->getAuthor()."', '".$libri->getDate()."','".$libri->getUserID()."')";
         $create = mysqli_query($connection, $query) or die(mysqli_error($connection));  
         return $create;  
     } else {  
@@ -35,9 +35,10 @@ function edit(Libri $libri){
         $photo = $libri->getPhoto();
         $author = $libri->getAuthor();
         $date = $libri->getDate();
+        $userID = $libri->getUserID();
         $id = $libri->getId();
         
-    $sql = "UPDATE libri SET price='$price' , photo='$photo' , author='$author' , date='$date' WHERE id=$id";
+    $sql = "UPDATE libri SET `price`='$price' , `photo`='$photo' , `author`='$author' , `date`='$date' , `User_ID`='$userID' WHERE id=$id";
     $toEdit = mysqli_query($connection,$sql);
 }
 

@@ -1,5 +1,6 @@
 <?php
     require('../Model/db_connection.php');
+    require('../Model/libriRepo.php');
 
     if(isset($_GET['delete'])){
         global $connection;
@@ -8,13 +9,12 @@
         $sql = "DELETE FROM `libri` WHERE id=$id";
         $result = mysqli_query($connection,$sql) or die(mysqli_error($connection));
         
-        if($result){
-            $_SESSION['message'] = "User Deleted Succesfully";
-        } else {
-            $_SESSION['message'] = "User didn't Deleted Succesfully";
-        }
+        // if($result){
+        //     $_SESSION['message'] = "User Deleted Succesfully";
+        // } else {
+        //     $_SESSION['message'] = "User didn't Deleted Succesfully";
+        // }
         header("location: ../View/libriAdmin.php");
-        exit();
     }
 
     $titulli = "";
@@ -44,39 +44,36 @@
         header("location: ../View/libriAdmin.php");
     }
 
+    
+
     if(isset($_POST['ndryshoButton'])){
-        global $connection;
+        session_start();
+
         $idd = $_POST['idHidden'];
         $titulli = $_POST['titulli'];
         $cmimi = $_POST['cmimi'];
         $photo = $_POST['photo'];
         $autor = $_POST['autori'];
         $data = $_POST['data'];
+        $userID = $_SESSION['id'];
 
-        // echo $idd.' '.$titulli.' '.$cmimi.' '.$photo.' '.$autor.' '.$data;
- 
-        $sql = "UPDATE `libri` SET `price` = $cmimi , `photo` = '$photo' , `author` = '$autor' , `date` = '$data'  WHERE id = $idd";
-        $result = mysqli_query($connection,$sql) or die(mysqli_error($connection));
-        if($result){
-            // Mesazhi me Sukses
-            header("location: ../View/libriAdmin.php");
-        }else {
-            // Mesazhi pa sukses
-            header("location: ../View/libriAdmin.php");
-        }
+        $libri = new Libri($titulli,$cmimi,$photo,$autor,$data,$userID);
+        edit($libri);
+        header("location: ../View/libriAdmin.php");
     }
 
-    require('../Model/libriRepo.php');
+    
 
     if(isset($_POST['createLiber'])){
+        session_start();
         $titulli = $_POST['titulli'];
         $cmimi = $_POST['cmimi'];
         $photo = $_POST['photo'];
         $autor = $_POST['autori'];
         $data = $_POST['data'];
+        $userID = $_SESSION['id'];
 
-        // echo $titulli.' '.$cmimi.' '.$photo.' '.$autor.' '.$data;
-        $libri = new Libri($titulli,$cmimi,$photo,$autor,$data);
+        $libri = new Libri($titulli,$cmimi,$photo,$autor,$data,$userID);
         if(createLibri($libri)){
         ?>
         <script>
