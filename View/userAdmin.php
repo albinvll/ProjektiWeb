@@ -23,13 +23,7 @@
                     <a href="contactadmin.php">Contact</a>
                 </div>
                 <div class="Titujt">
-                    <a href="#example1.php">example1</a>
-                </div>
-                <div class="Titujt">
-                    <a href="#example2.php">example2</a>
-                </div>
-                <div class="Titujt">
-                    <a href="#example3.php">example3</a>
+                    <a href="aboutAdmin.php">About</a>
                 </div>
             </div>
         </div>

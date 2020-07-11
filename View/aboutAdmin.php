@@ -14,7 +14,7 @@
             </div>
             <div class="left-side-main">
                 <div class="Titujt" style="color: red;">
-                    Libri
+                    <a href="libriAdmin.php">Libri</a>
                 </div>
                 <div class="Titujt">
                     <a href="userAdmin.php">User</a>
@@ -22,47 +22,40 @@
                 <div class="Titujt">
                     <a href="contactAdmin.php">Contact</a>
                 </div>
-                <div class="Titujt">
-                    <a href="aboutAdmin.php">About</a>
+                <div class="Titujt" style="color: red;">
+                    About
                 </div>
-                
             </div>
         </div>
         <div class="right-side">
             <?php
-                    require_once "../Controller/AdminLibri.php";
-                    // session_start();
-                    // if(isset($_SESSION['message'])){
-                    //     echo $_SESSION['message'];
-                    //     unset($_SESSION['message']);
-                    // }
+                    require_once "../Controller/AdminAbout.php";
                 ?>
                 
                 <div class="tabela-forma">
-                <table id="tabelaLibri" class="tabelaUser">
+                <table id="tabelaAbout" class="tabelaUser">
                     <tr>
                   
-                        <th>Title</th>
-                        <th>Price</th>
-                        <th>Photo</th>
-                        <th>Author</th>
-                        <th>Date</th>
+                        <th>Emri</th>
+                        <th>Mbiemri</th>
+                        <th>Profesioni</th>
+                        <th>Foto</th>
                         <th colspan="2">Action</th>
                     </tr>   
                     <?php
                         require "../Model/db_connection.php";
                         global $connection;
 
-                        $sql = "select id , title, price, photo, author, date from libri";
+                        $sql = "select id , emri, mbiemri, profesioni, foto from about";
                         $result = $connection->query($sql);
 
                         if ($result->num_rows > 0){
                             while($row = $result-> fetch_assoc()){
-                                echo "<tr><td>". $row["title"] ."</td><td>". $row["price"]  ."</td><td>". $row["photo"] ."</td><td>". $row["author"] ."</td><td>". $row["date"] ."</td>";
+                                echo "<tr><td>". $row["emri"] ."</td><td>". $row["mbiemri"]  ."</td><td>". $row["profesioni"] ."</td><td>". $row["foto"] ."</td>";
                                 ?>
                                 <td>
-                                    <a href="libriAdmin.php?edit=<?php echo $row['id']; ?>">Edit</a>
-                                    <a href="../Controller/AdminLibri.php?delete=<?php echo $row['id']; ?>">Delete</a>
+                                    <a href="aboutAdmin.php?edit=<?php echo $row['id']; ?>">Edit</a>
+                                    <a href="../Controller/AdminAbout.php?delete=<?php echo $row['id']; ?>">Delete</a>
                                 </td>
                                 </tr>
                                 <?php
@@ -77,27 +70,23 @@
                 </table>
             </div>
             <div class="libri-forma">
-                <form action="../Controller/AdminLibri.php" method="POST" onsubmit="return libriAdmin()">
+                <form action="../Controller/AdminAbout.php" method="POST" onsubmit="return aboutAdmin()">
                         <div class="login-form">
-                            <label for="">Titulli</label><br>
-                            <input type="text" name="titulli" id="titulliInput" value = "<?php echo $titulli; ?>">
+                            <label for="">Emri</label><br>
+                            <input type="text" name="Emri" id="emriAboutInput" value = "<?php echo $emri; ?>">
                             <input type="hidden" name="idHidden" id="" value = "<?php echo $id; ?>">
                         </div>
                         <div class="login-form">
-                            <label for="">Cmimi</label><br>
-                            <input type="text" name="cmimi" id="cmimiInput" value = "<?php echo $cmimi; ?>">
+                            <label for="">Mbiemri</label><br>
+                            <input type="text" name="mbiemri" id="mbiemriAboutInput" value = "<?php echo $mbiemri; ?>">
                         </div>
                         <div class="login-form">
-                            <label for="">Photo</label><br>
-                            <input type="text" name="photo" id="photoInput" value ="<?php echo $photo; ?>">
+                            <label for="">Profesioni</label><br>
+                            <input type="text" name="profesioni" id="profesioniAboutInput" value ="<?php echo $profesioni; ?>">
                         </div>
                         <div class="login-form">
-                            <label for="">Autori</label><br>
-                            <input type="text" name="autori" id="autoriInput" value ="<?php echo $autor; ?>">
-                        </div>
-                        <div class="login-form">
-                            <label for="">Data</label><br>
-                            <input type="date" name="data" id="dataInput" value = "<?php echo $data; ?>">
+                            <label for="">Foto</label><br>
+                            <input type="text" name="foto" id="fotoAboutInput" value ="<?php echo $foto; ?>">
                         </div>
                         <div class="butonat-div">
                         <?php
@@ -109,7 +98,7 @@
                                     <?php
                                 } else {
                                     ?>
-                                        <button name="createLiber">
+                                        <button name="createWorker">
                                             Ruaj
                                         </button>
                                     <?php

@@ -23,13 +23,7 @@
                     Contact
                 </div>
                 <div class="Titujt">
-                    <a href="#example2.php">example2</a>
-                </div>
-                <div class="Titujt">
-                    <a href="#example2.php">example2</a>
-                </div>
-                <div class="Titujt">
-                    <a href="#example3.php">example3</a>
+                    <a href="aboutAdmin.php">About</a>
                 </div>
             </div>
         </div>
@@ -70,19 +64,7 @@
             </div>
             <div class="libri-forma">
                 <form action="../Controller/AdminUser.php" method="POST" onsubmit="return contactAdmin()">
-                        <div class="login-form">
-                            <label for="">Email</label><br>
-                            <input type="text" name="email" id="econtactInput">
-                            
-                        </div>
-                        <div class="login-form">
-                            <label for="">Subject</label><br>
-                            <input type="text" name="subject" id="subjectInput">
-                        </div>
-                        <div class="login-form">
-                            <label for="">Sent Date</label><br>
-                            <input type="date" name="sentdate" id="sentdateInput">
-                        </div>
+                    <textarea name="content" id="content" cols="60" rows="30">Message Here...</textarea>
                 </form>
             </div>            
         </div>
@@ -90,3 +72,4 @@
     <script src="javascript/admin.js"></script>
 </body>
 </html>
+

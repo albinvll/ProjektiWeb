@@ -33,3 +33,15 @@ function contactAdmin(){
     }
     return true;
 }
+
+function aboutAdmin(){
+    var emriAbout = document.getElementById("emriAboutInput").value;
+    var mbiemriAbout = document.getElementById("mbiemriAboutInput").value;
+    var profesioniAbout = document.getElementById("profesioniAboutInput").value;
+    var fotoAbout = document.getElementById("fotoAboutInput").value;
+    if(emriAbout == "" || mbiemriAbout == "" || profesioniAbout == "" || fotoAbout == ""){
+        alert("Mbush te gjitha kolonat");
+        return false;
+    }
+    return true;
+}
