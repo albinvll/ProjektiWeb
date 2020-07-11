@@ -42,36 +42,38 @@
         header("location: ../View/aboutAdmin.php");
     }
 
+    require('../Model/aboutRepo.php');
+
     if(isset($_POST['ndryshoButton'])){
         global $connection;
         $idd = $_POST['idHidden'];
-        $emri = $_POST['emri'];
+        $emri = $_POST['Emri'];
         $mbiemri = $_POST['mbiemri'];
         $profesioni = $_POST['profesioni'];
         $foto = $_POST['foto'];
-
-        // echo $idd.' '.$titulli.' '.$cmimi.' '.$photo.' '.$autor.' '.$data;
- 
-        $sql = "UPDATE `about` SET `mbiemri` = '$mbiemri' , `profesioni` = '$profesioni' , `foto` = '$foto'  WHERE id = $idd";
-        $result = mysqli_query($connection,$sql) or die(mysqli_error($connection));
-        if($result){
-            // Mesazhi me Sukses
-            header("location: ../View/aboutAdmin.php");
-        }else {
-            // Mesazhi pa sukses
-            header("location: ../View/aboutAdmin.php");
-        }
+        
+        $about = new About($emri,$mbiemri,$profesioni,$foto);
+        edit($about);
+        header("location: ../View/aboutAdmin.php");
+        // $sql = "UPDATE `about` SET `mbiemri` = '$mbiemri' , `profesioni` = '$profesioni' , `foto` = '$foto'  WHERE id = $idd";
+        // $result = mysqli_query($connection,$sql) or die(mysqli_error($connection));
+        // if($result){
+        //     // Mesazhi me Sukses
+            // header("location: ../View/aboutAdmin.php");
+        // }else {
+        //     // Mesazhi pa sukses
+        //     header("location: ../View/aboutAdmin.php");
+        // }
     }
 
-    require('../Model/aboutRepo.php');
+    
 
     if(isset($_POST['createWorker'])){
-        $emri = $_POST['emri'];
+        $emri = $_POST['Emri'];
         $mbiemri = $_POST['mbiemri'];
         $profesioni = $_POST['profesioni'];
         $foto = $_POST['foto'];
 
-        // echo $titulli.' '.$cmimi.' '.$photo.' '.$autor.' '.$data;
         $about = new About($emri,$mbiemri,$profesioni,$foto);
         if(createWorker($about)){
         ?>

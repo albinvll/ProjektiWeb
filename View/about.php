@@ -95,26 +95,23 @@
             <p style="text-align:center;">Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old.</p>
         </div>
         <div class="people">
-            <div class="guy1">
-                <img src="Images/guy1.jpg" />
-                <h2>Bimbleton</h2>
-                <p>CEO & Co-founder</p>
-            </div>
-            <div class="guy1">
-                <img src="Images/girl1.jpg" />
-                <h2>Bimbleton</h2>
-                <p>CEO & Co-founder</p>
-            </div>
-            <div class="guy1">
-                <img src="Images/girl2.jpg" />
-                <h2>Bimbleton</h2>
-                <p>CEO & Co-founder</p>
-            </div>
-             <div class="guy1">
-                <img src="Images/guy2.jpg" />
-                <h2>Bimbleton</h2>
-                <p>CEO & Co-founder</p>
-            </div>
+            <?php
+                require('../Model/db_connection.php');
+                global $connection;
+
+                $query = "SELECT * FROM about LIMIT 4";
+                $result = mysqli_query($connection, $query) or die(mysqli_error($connection));
+                while($row = $result->fetch_array()){
+                    ?>
+                        <div class="guy1">
+                            <img src="Images/<?php echo $row['foto']; ?>" />
+                            <h2> <?php echo $row['emri']." ".$row['mbiemri']; ?> </h2>
+                            <p> <?php echo $row['profesioni']; ?> </p>
+                        </div>
+                    <?php
+                }
+            ?>
+            
         </div>
         <div class="ourservice">
             <div class="ourservicetext">

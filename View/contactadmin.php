@@ -38,6 +38,9 @@
             </div>
         </div>
         <div class="right-side">
+                <?php
+                    require_once "../Controller/AdminContact.php";
+                ?>
             <div class="tabela-forma">
                 <table id="tableContact" class="tabelaUser">
                     <tr>
@@ -58,8 +61,8 @@
                                 echo "<tr><td>".  $row["email"] ."</td><td>". $row["subject"] ."</td><td>". $row["sentdate"] ."</td>";
                                 ?>
                                 <td>
-                                    <a href="userAdmin.php?edit=<?php echo $row['id']; ?>">Msg</a>
-                                    <a href="../Controller/AdminUser.php?delete=<?php echo $row['id']; ?>">Delete</a>
+                                    <a href="contactadmin.php?msg=<?php echo $row['id']; ?>">Msg</a>
+                                    <a href="../Controller/AdminContact.php?delete=<?php echo $row['id']; ?>">Delete</a>
                                 </td>
                                 </tr>
                                 <?php
@@ -74,7 +77,7 @@
             </div>
             <div class="libri-forma">
                 <form action="../Controller/AdminUser.php" method="POST" onsubmit="return contactAdmin()">
-                    <textarea name="content" id="content" cols="60" rows="30">Message Here...</textarea>
+                    <textarea name="content" id="content" cols="60" rows="30"> <?php echo $mesazhi; ?> </textarea>
                 </form>
             </div>            
         </div>

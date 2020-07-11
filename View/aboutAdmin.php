@@ -38,7 +38,7 @@
             </div>
         </div>
         <div class="right-side">
-            <?php
+                <?php
                     require_once "../Controller/AdminAbout.php";
                 ?>
                 
