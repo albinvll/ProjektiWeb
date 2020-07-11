@@ -1,3 +1,13 @@
+<?php
+    session_start();
+    $roli = $_SESSION['roli'];
+    if($_SESSION['roli']!=1){
+        header("location: index.php");
+    }
+    if(isset($_SESSION['login'])!=true){
+        header("location: index.php");
+    }
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>

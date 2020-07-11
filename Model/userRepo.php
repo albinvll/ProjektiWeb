@@ -25,6 +25,7 @@ function login($email, $password){
         session_start(); 
         $_SESSION['login'] = true;  
         $_SESSION['id'] = $data['id'];
+        $_SESSION['roli'] = $data['roli'];
         $_SESSION['name'] = $data['name'];  
         $_SESSION['surname'] = $data['surname'];  
         return true;  

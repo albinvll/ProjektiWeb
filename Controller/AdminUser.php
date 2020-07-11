@@ -1,6 +1,5 @@
 <?php
     require('../Model/db_connection.php');
-    session_start();
 
 
     if(isset($_GET['delete'])){
