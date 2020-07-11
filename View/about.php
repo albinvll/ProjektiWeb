@@ -99,7 +99,7 @@
                 require('../Model/db_connection.php');
                 global $connection;
 
-                $query = "SELECT * FROM about LIMIT 4";
+                $query = "SELECT * FROM about";
                 $result = mysqli_query($connection, $query) or die(mysqli_error($connection));
                 while($row = $result->fetch_array()){
                     ?>

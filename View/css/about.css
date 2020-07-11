@@ -198,6 +198,7 @@
 .people{
     display: flex;
     text-align: center;
+    flex-wrap: wrap;
     justify-content: space-evenly;
     margin-top: 50px;
 }
