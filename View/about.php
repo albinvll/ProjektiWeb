@@ -51,11 +51,27 @@
                 <div class="header-phone-div">
                     <div class="header-phone-div-content">
                         <div>
-                            <img src="Images/phone.png" alt="">
-                        </div>  
-                        <div class="number">
-                            +383 44 307 373
+                        <img src="Images/profile.png" style="width:40px; height:40px;" alt="">
                         </div>
+                        <div class="number">
+                            <?php
+                                session_start();
+                                if(isset($_SESSION['login'])){
+                                    echo $_SESSION['name']." ".$_SESSION['surname'];
+                            ?>
+                                <div>
+                                    <div class="dropdown-content">
+                                        <a href="changepassword.php">Account Managment</a>
+                                        <a href="../Controller/logout.php">Log out</a>
+                                    </div>
+                                </div>
+                            <?php
+                                }else{
+                                    echo "<a href=\"index.php\">Not logged in</a>";
+                                }
+                            ?>
+                        </div>
+                    </div>
                     </div>
                 </div>
             </div>

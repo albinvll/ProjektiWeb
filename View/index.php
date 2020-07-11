@@ -35,6 +35,9 @@
                         <label for="">Password</label><br>
                         <input type="password" name="passwordInput" id="passwordInput">
                     </div>
+                    <div class="login-form">
+                        <a href="forget_password.php">Forgot password?</a>
+                    </div>
                     <div class="butonat-div">
                         <button onclick="" id="loginButton">
                             Login

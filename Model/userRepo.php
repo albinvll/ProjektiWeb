@@ -21,9 +21,12 @@ function login($email, $password){
     $check = mysqli_query($connection,"Select * from users where email='$email' and password='$pass'");  
     $data = mysqli_fetch_array($check);  
     $result = mysqli_num_rows($check);  
-    if ($result == 1) {  
+    if ($result == 1) { 
+        session_start(); 
         $_SESSION['login'] = true;  
-        $_SESSION['id'] = $data['id'];  
+        $_SESSION['id'] = $data['id'];
+        $_SESSION['name'] = $data['name'];  
+        $_SESSION['surname'] = $data['surname'];  
         return true;  
     } else {  
         return false;
@@ -62,6 +65,38 @@ function edit(User $editedUser){
         $toEdit = mysqli_query($connection,$query);
     }else{
         return false;
+    }
+}
+
+function isAdmin($email){
+    global $connection;
+    $check = mysqli_query($connection,"Select roli from users where email='$email'");  
+    $data = mysqli_fetch_array($check);  
+    return $data['roli'];
+}
+
+function editPassword($new){
+    global $connection;
+    session_start();
+        if(session()==1){
+            $pass = md5($new);
+            $query = "UPDATE `users` SET `password` = '$new' WHERE `id`='".$_SESSION['id']."'";
+            mysqli_query($connection, $query);
+        }else{
+            return false;
+        }
+    }
+
+function getPassword(){
+    global $connection;
+    session_start();
+    if(session() == 1){
+        $query = "SELECT `password` FROM `users` WHERE `id`='".$_SESSION['id']."'";
+        $result = mysqli_query($connection, $query);
+        $row = $result->fetch_assoc();
+        return $row['password'];
+    }else{
+        return null;
     }
 }
 ?>
