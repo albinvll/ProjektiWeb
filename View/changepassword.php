@@ -7,26 +7,30 @@
     <link rel="stylesheet" href="../View/css/login.css">
 </head>
 <body>
-<form method="POST" action="../Controller/change_password.php" onsubmit="return check()">
-    <div class="login-form">
-        <label for="">Current password:</label><br>
-        <input type="password" name="currentPasswordInput" id="cPasswordInput">
-    </div>
-    <div class="login-form">
-        <label for="">New password:</label><br>
-        <input type="password" name="newPasswordInput" id="nPasswordInput">
-    </div>
-    <div class="login-form">
-        <label for="">Confirm new password:</label><br>
-        <input type="password" name="confirmNewPasswordInput" id="cNPasswordInput">
-    </div>
+<div class="backgroundNgjyra">
+    <div class="changePasswordDiv">
+        <form method="POST" action="../Controller/change_password.php" onsubmit="return check()">
+            <div class="login-form">
+                <label for="">Current password:</label><br>
+                <input type="password" name="currentPasswordInput" id="cPasswordInput">
+            </div>
+            <div class="login-form">
+                <label for="">New password:</label><br>
+                <input type="password" name="newPasswordInput" id="nPasswordInput">
+            </div>
+            <div class="login-form">
+                <label for="">Confirm new password:</label><br>
+                <input type="password" name="confirmNewPasswordInput" id="cNPasswordInput">
+            </div>
 
-    <div class="butonat-div">
-        <button name="changePass">
-            Change Password
-        </button>
+            <div class="butonat-div">
+                <button name="changePass">
+                    Change Password
+                </button>
+            </div>
+        </form>
     </div>
-</form>
+</div>
 <script src="javascript/changepassword.js"></script>
 </body>
 </html> 

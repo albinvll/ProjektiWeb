@@ -75,6 +75,9 @@
                     <i>Autori:</i>   
                     <?php echo $row['author']; ?>
                 </div>
+                <div id="titulli-pershkrimi">
+                    <?php echo $row['date']; ?>
+                </div>
                 <div id="price">
                     $<?php echo $row['price']; ?>
                 </div>
@@ -133,7 +136,9 @@
     </footer>
     <div class="copyright">
         &copy; 2020 All Rights Reserved <br>
-        <a href="https://github.com/dionk6/Projekti.git" target="_blank">REPOSITORY: Dion Kuka , Albin Vllahiu , Alban Salihu</a>
+        <a href="https://github.com/dionk6/Projekti.git" target="_blank">REPOSITORY FRONTEND: Dion Kuka , Albin Vllahiu , Alban Salihu</a>
+        </br>
+        <a href="https://github.com/albinvll/ProjektiWeb.git" target="_blank">REPOSITORY BACKEND: Dion Kuka , Albin Vllahiu , Alban Salihu</a>
     </div>
     <script src="javascript/home.js"></script>
     
