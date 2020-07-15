@@ -28,25 +28,25 @@ function CreateAccount(){
     var reg = /^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$/;
 
     if(document.getElementById('nameInput').value.trim()==""){
-        alert("Emri zbrazet!");
+        alert("Name is empty!");
         return false;
     }else if(document.getElementById('surnameInput').value.trim()==""){
-        alert("Mbiemri i zbrazet!");
+        alert("Surname is empty!");
         return false;
     }else if(document.getElementById('emailRegisterInput').value.trim()==""){
-        alert("Email i zbrazet!");
+        alert("E-mail is empty!");
         return false;
     }else if(reg.test(document.getElementById('emailRegisterInput').value) == false){
         alert("Invalid Email Address");
         return false;
     }else if(document.getElementById('passwordSignupInput').value.trim()==""){
-        alert("Password i zbrazet!");
+        alert("Password is empty");
         return false;
     }else if(document.getElementById('confirmPasswordInput').value.trim()==""){
-        alert("Confirm your password!");
+        alert("Confirm password is empty!");
         return false;
     }else if((document.getElementById('passwordSignupInput').value) != (document.getElementById('confirmPasswordInput').value) ){
-        alert("Password not matching");
+        alert("Passwords are not matching!");
         return false;
     }
     return true;

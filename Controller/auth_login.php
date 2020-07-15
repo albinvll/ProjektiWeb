@@ -9,10 +9,11 @@ include('../Model/userRepo.php');
 			header("location:../View/home.php");
 		}
 	}else{
-
-		header("location:../View/index.php");
 		?>
-        <script>alert("Account doesn't exist!");</script>
+        <script>
+		window.location.href="../View/index.php";
+		alert("Account doesn't exist!");
+		</script>
 		
 		<?php
 		

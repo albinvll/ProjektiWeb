@@ -17,9 +17,9 @@
                 header("location:../View/index.php");
             }
         }else{
-            echo "<script>alert(\"Your current password doesn't match your old one\")</script>";
+            echo "<script>alert(\"Your current password doesn't match your old one\");</script>";
         }
     }else{
-        echo "<script>alert(\"Error\")</script>";
+        echo "<script>alert(\"Error\");</script>";
     }
 ?>
