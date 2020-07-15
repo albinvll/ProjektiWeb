@@ -100,15 +100,15 @@
             </div>
             <div class="rightside">
                 <h1>SEND US A MESSAGE</h1>
-                <form action="../Controller/contact_report.php" method="POST">
+                <form action="../Controller/contact_report.php" method="POST" onsubmit="return kontakto()">
                     <div class="rightside-content">
-                        <input class="form-control" id="inputEmail" name="inputEmail" type="email" value placeholder="Your Email">
+                        <input class="form-control" id="inputEmail" name="inputEmail" type="text" placeholder="Your Email">
                     </div>
-                    <input class="subject" name="inputSubject" type="subject" value placeholder="Subject">
+                    <input class="subject" name="inputSubject" type="text" placeholder="Subject">
                     
                     <textarea class="message-content" name="inputMessage" placeholder="Your Message" rows="5" style="margin-top: 0px; margin-bottom: 0px; height: 131px;"></textarea>
 
-                    <button type="submit" name="submitContact">CONTACT US</button>
+                    <button name="submitContact">CONTACT US</button>
                 </form>
             </div>
         </div>    
