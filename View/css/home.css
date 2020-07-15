@@ -23,7 +23,7 @@ html {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    width: 50%;
+    width: 60%;
     height: auto;
 }
 
@@ -65,7 +65,7 @@ html {
 }
 
 .search-input {
-    width: 60%;
+    width: 100%;
     padding-left: 25px;
     padding-right: 25px;
 }

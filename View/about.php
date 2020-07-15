@@ -13,30 +13,8 @@
                 <img src="Images/bookshop2.png" alt="">
             </div>
             
-            <div class="cart">
-                <div class="search">
-                        <div class="all">
-                            <div class="all-cat">
-                                ALL CATEGORIES
-                            </div>
-                            <div class="search-input">
-                                <input type="text" placeholder="Enter search your key">
-                            </div>
-                            <div class="search-icon">
-                                <button type="submit">
-                                    <i class="fa fa-search"></i>
-                                </button>
-                            </div>
-                        </div>
-                </div>
-            </div>
-            <div class="categories">
-                <div class="categories-content">
-                    <p>
-                        <i class="fa fa-shopping-cart"></i> My cart: 0 item(s)
-                    </p>
-                </div>
-            </div>
+            
+            
         </div>
         <div class="header-size">
             <div class="header">
@@ -169,19 +147,7 @@
                 <p>Sitemap</p>
             </div>
         </div>
-        <div class="footer-content">
-            <h3>FOLLOW INSTAGRAM</h3>
-            <div class="insta-pic">
-                <div class="row">
-                    <img src="Images/guy1.jpg" alt="">
-                    <img src="Images/girl1.jpg" alt="">
-                </div>
-                <div class="row">
-                    <img src="Images/girl2.jpg" alt="">
-                    <img src="Images/guy2.jpg" alt="">
-                </div>
-            </div>
-        </div>
+        
     </footer>
     <div class="copyright">
         &copy; 2020 All Rights Reserved <br>

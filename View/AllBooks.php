@@ -34,13 +34,7 @@
                         </div>
                 </div>
             </div>
-            <div class="categories">
-                <div class="categories-content">
-                    <p>
-                        <i class="fa fa-shopping-cart"></i> My cart: 0 item(s)
-                    </p>
-                </div>
-            </div>
+            
         </div>
         <div class="header-size">
             <div class="header">
@@ -170,19 +164,6 @@
                 <p>Addresses</p>
                 <p>My Wishlists</p>
                 <p>Sitemap</p>
-            </div>
-        </div>
-        <div class="footer-content">
-            <h3>FOLLOW INSTAGRAM</h3>
-            <div class="insta-pic">
-                <div class="row">
-                    <img src="Images/guy1.jpg" alt="">
-                    <img src="Images/girl2.jpg" alt="">
-                </div>
-                <div class="row">
-                    <img src="Images/girl1.jpg" alt="">
-                    <img src="Images/guy2.jpg" alt="">
-                </div>
             </div>
         </div>
     </footer>

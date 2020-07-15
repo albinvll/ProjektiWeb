@@ -13,30 +13,7 @@
                 <img src="Images/bookshop2.png" alt="">
             </div>
             
-            <div class="cart">
-                <div class="search">
-                        <div class="all">
-                            <div class="all-cat">
-                                ALL CATEGORIES
-                            </div>
-                            <div class="search-input">
-                                <input type="text" placeholder="Enter search your key">
-                            </div>
-                            <div class="search-icon">
-                                <button type="submit">
-                                    <i class="fa fa-search"></i>
-                                </button>
-                            </div>
-                        </div>
-                </div>
-            </div>
-            <div class="categories">
-                <div class="categories-content">
-                    <p>
-                        <i class="fa fa-shopping-cart"></i> My cart: 0 item(s)
-                    </p>
-                </div>
-            </div>
+            
         </div>
         <div class="header-size">
             <div class="header">
