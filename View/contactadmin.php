@@ -12,6 +12,7 @@
 <html lang="en">
 <head>
     <title>Administrator</title>
+    <link rel="icon" href="Images/icon.png">
     <link rel="stylesheet" href="css/admin.css">
 </head>
 <body>
@@ -19,7 +20,7 @@
         <div class="left-side">
             <div class="logo">
             <div>
-                <img src="Images/bookshop2.png" alt="">
+                <a href="home.php"><img src="Images/bookshop2.png" alt=""></a>
             </div>
             </div>
             <div class="left-side-main">

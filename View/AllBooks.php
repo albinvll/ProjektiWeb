@@ -44,6 +44,21 @@
                         <a href="about.php"><li>ABOUT US</li></a>
                         <a href="contact.php"><li>CONTACT US</li></a>
                         <a href="AllBooks.php" style="color: #e94c37;"><li>BOOKS</li></a>
+                        <?php
+                            require("../Model/userRepo.php");
+                            session_start();
+
+                            if(isset($_SESSION['email'])){
+                                $email = $_SESSION['email'];
+                                $roli = isAdmin($email);
+                                if($roli == 1){
+                                    ?>
+                                        <a href="libriAdmin.php"><li>DASHBOARD</li></a>
+                                    <?php
+                                }
+                            }
+                            
+                        ?>
                     </ul>
                 </div>
                 <div class="header-phone-div">
@@ -53,7 +68,6 @@
                         </div>
                         <div class="number">
                             <?php
-                                session_start();
                                 if(isset($_SESSION['login'])){
                                     echo $_SESSION['name']." ".$_SESSION['surname'];
                             ?>

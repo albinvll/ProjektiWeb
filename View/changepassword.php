@@ -25,7 +25,7 @@
 
             <div class="butonat-div">
                 <button name="changePass">
-                    Change Password
+                    Change
                 </button>
             </div>
         </form>
