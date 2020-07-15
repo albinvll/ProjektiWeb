@@ -19,7 +19,8 @@
         <div class="left-side">
             <div class="logo">
             <div>
-                <img src="Images/bookshop2.png" alt="">
+                <a href="home.php"><img src="Images/bookshop2.png" alt=""></a>
+                
             </div>
             </div>
             <div class="left-side-main">
@@ -37,14 +38,13 @@
                 </div>
                 
             </div>
+            <div class="logoutButton">
+                <a href="../Controller/logout.php">LOG OUT</a>
+            </div>
         </div>
         <div class="right-side">
             <?php
                     require_once "../Controller/AdminLibri.php";
-                    // if(isset($_SESSION['message'])){
-                    //     echo $_SESSION['message'];
-                    //     unset($_SESSION['message']);
-                    // }
                 ?>
                 
                 <div class="tabela-forma">

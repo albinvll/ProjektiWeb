@@ -36,6 +36,9 @@
                     <a href="aboutAdmin.php">About</a>
                 </div>
             </div>
+            <div class="logoutButton">
+                <a href="../Controller/logout.php">LOG OUT</a>
+            </div>
         </div>
         <div class="right-side">
                 <?php
