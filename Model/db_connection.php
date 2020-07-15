@@ -1,5 +1,5 @@
 <?php
-$connection = mysqli_connect('localhost', 'root', '');
+$connection = mysqli_connect('localhost', 'albin', '');
 if (!$connection){
     die("Database Connection Failed" . mysqli_error($connection));
 }
