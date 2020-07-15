@@ -1,11 +1,14 @@
 <?php
     require("../Model/userRepo.php");
     
-    $current = md5($_POST['currentPasswordInput']);
     $old = getPassword();
+    echo $_POST['currentPasswordInput'];
+    echo $_POST['newPasswordInput'];
+    echo $_POST['confirmNewPasswordInput'];
+    if(isset($_POST['changePass'])){
+    $current = md5($_POST['currentPasswordInput']);
     $new = $_POST['newPasswordInput'];
     $confirmNew = $_POST['confirmNewPasswordInput'];
-    if(isset($current) && isset($new) && isset($confirmNew)){
         if($current == $old){
             if($new == $confirmNew){
                 session_start();
@@ -16,5 +19,7 @@
         }else{
             echo "<script>alert(\"Your current password doesn't match your old one\")</script>";
         }
+    }else{
+        echo "<script>alert(\"Error\")</script>";
     }
 ?>
